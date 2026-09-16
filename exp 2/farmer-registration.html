@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<head>
+    <title>Farmer Registration</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .registration-container {
+            width: 700px;
+            max-width: 90%;
+            margin: 40px auto;
+            background-color: #ECFFDC;
+            padding: 30px;
+            border: 2px solid #3CB371;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .registration-container h2 {
+            text-align: center;
+            color: #006A4E;
+            margin-bottom: 25px;
+        }
+
+        fieldset {
+            border: 2px solid #8FBC8F;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            color: #355E3B;
+            font-weight: bold;
+            padding: 0 10px;
+        }
+
+        .form-row {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #355E3B;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #8FBC8F;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border: 2px solid #3CB371;
+        }
+
+        .error {
+            color: #B22222;
+            font-size: 13px;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .invalid {
+            border: 2px solid #B22222;
+            background-color: #FFF0F0;
+        }
+
+        .button-area {
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .button-area input {
+            width: 140px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .submit-button {
+            background-color: #3CB371;
+            color: white;
+        }
+
+        .reset-button {
+            background-color: #e03f3f;
+            color: #f5ebbc;
+        }
+
+        .button-area input:hover {
+            opacity: 0.85;
+        }
+
+        .success-message {
+            text-align: center;
+            color: #006A4E;
+            background-color: #C1E1C1;
+            border: 2px solid #3CB371;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <a href="index.html">
+        <img
+            src="logo.png"
+            alt="Smart Irrigation Advisory System Logo"
+            style="height: 100px; width: 250px;"
+        >
+    </a>
+
+    <h1>FARMER REGISTRATION</h1>
+
+    <p>Smart Irrigation Advisory System</p>
+
+</header>
+
+<nav class="main-nav">
+
+    <a href="index.html">Home</a>
+    <a href="about-system.html">About</a>
+    <a href="irrigation-advisory.html">Irrigation Advisory</a>
+    <a href="farm-information.html">Farm Information</a>
+    <a href="farm-map.html">Farm Map</a>
+    <a href="recommendation.html">Recommendations</a>
+    <a href="farmer-registration.html">Farmer Registration</a>
+    <a href="media.html">Media</a>
+
+</nav>
+
+<main>
+
+    <div class="registration-container">
+
+        <h2>Farmer Registration Form</h2>
+
+        <form id="registrationForm" action="farmer-registration.html" method="get">
+
+            <fieldset>
+
+                <legend>Farmer Information</legend>
+
+                <div class="form-row">
+
+                    <label for="farmerName">Farmer Name</label>
+
+                    <input
+                        type="text"
+                        id="farmerName"
+                        name="farmerName"
+                    >
+
+                    <span class="error" id="farmerNameError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="mobile">Mobile Number</label>
+
+                    <input
+                        type="tel"
+                        id="mobile"
+                        name="mobile"
+                        maxlength="10"
+                        placeholder="10-digit mobile number"
+                    >
+
+                    <span class="error" id="mobileError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="email">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="example@email.com"
+                    >
+
+                    <span class="error" id="emailError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="village">Village</label>
+
+                    <input
+                        type="text"
+                        id="village"
+                        name="village"
+                    >
+
+                    <span class="error" id="villageError"></span>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Farm Information</legend>
+
+                <div class="form-row">
+
+                    <label for="plotId">Plot ID</label>
+
+                    <input
+                        type="text"
+                        id="plotId"
+                        name="plotId"
+                    >
+
+                    <span class="error" id="plotIdError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="cropStage">Crop Stage</label>
+
+                    <select id="cropStage" name="cropStage">
+
+                        <option value="">Select Crop Stage</option>
+                        <option value="germination">Germination</option>
+                        <option value="tillering">Tillering</option>
+                        <option value="vegetative">Vegetative</option>
+                        <option value="grand-growth">Grand Growth</option>
+                        <option value="maturity">Maturity</option>
+
+                    </select>
+
+                    <span class="error" id="cropStageError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="soilType">Soil Type</label>
+
+                    <select id="soilType" name="soilType">
+
+                        <option value="">Select Soil Type</option>
+                        <option value="sandy">Sandy</option>
+                        <option value="loamy">Loamy</option>
+                        <option value="clay">Clay</option>
+                        <option value="black">Black Soil</option>
+                        <option value="red">Red Soil</option>
+
+                    </select>
+
+                    <span class="error" id="soilTypeError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="irrigationMethod">Irrigation Method</label>
+
+                    <select id="irrigationMethod" name="irrigationMethod">
+
+                        <option value="">Select Irrigation Method</option>
+                        <option value="drip">Drip Irrigation</option>
+                        <option value="surface">Surface Irrigation</option>
+                        <option value="sprinkler">Sprinkler Irrigation</option>
+                        <option value="subsurface">Subsurface Irrigation</option>
+
+                    </select>
+
+                    <span class="error" id="irrigationMethodError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="soilMoisture">
+                        Soil Moisture (%)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="soilMoisture"
+                        name="soilMoisture"
+                        min="0"
+                        max="100"
+                        step="0.1"
+                    >
+
+                    <span class="error" id="soilMoistureError"></span>
+
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+
+                <legend>Registration Details</legend>
+
+                <div class="form-row">
+
+                    <label for="registrationDate">
+                        Registration Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="registrationDate"
+                        name="registrationDate"
+                    >
+
+                    <span class="error" id="registrationDateError"></span>
+
+                </div>
+
+                <div class="form-row">
+
+                    <label for="farmPhoto">
+                        Farm Photo
+                    </label>
+
+                    <input
+                        type="file"
+                        id="farmPhoto"
+                        name="farmPhoto"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </fieldset>
+
+            <div class="button-area">
+
+                <input
+                    type="submit"
+                    value="Submit"
+                    class="submit-button"
+                >
+
+                <input
+                    type="reset"
+                    value="Reset"
+                    class="reset-button"
+                >
+
+            </div>
+
+        </form>
+
+        <div
+            id="successMessage"
+            class="success-message"
+            style="display:none;"
+        >
+            Registration submitted successfully.
+        </div>
+
+    </div>
+
+</main>
+
+<footer class="main-footer">
+
+    <p>© 2026 Smart Irrigation Advisory System</p>
+
+</footer>
+
+<script>
+
+const form = document.getElementById("registrationForm");
+
+const farmerName = document.getElementById("farmerName");
+const mobile = document.getElementById("mobile");
+const email = document.getElementById("email");
+const plotId = document.getElementById("plotId");
+const village = document.getElementById("village");
+
+const cropStage = document.getElementById("cropStage");
+const soilType = document.getElementById("soilType");
+const irrigationMethod = document.getElementById("irrigationMethod");
+const registrationDate = document.getElementById("registrationDate");
+
+const farmerNameError = document.getElementById("farmerNameError");
+const mobileError = document.getElementById("mobileError");
+const emailError = document.getElementById("emailError");
+const plotIdError = document.getElementById("plotIdError");
+const villageError = document.getElementById("villageError");
+
+const cropStageError = document.getElementById("cropStageError");
+const soilTypeError = document.getElementById("soilTypeError");
+const irrigationMethodError =
+    document.getElementById("irrigationMethodError");
+const registrationDateError =
+    document.getElementById("registrationDateError");
+
+const successMessage =
+    document.getElementById("successMessage");
+
+const today =
+    new Date().toISOString().split("T")[0];
+
+registrationDate.max = today;
+
+function showError(field, errorElement, message) {
+
+    field.classList.add("invalid");
+    errorElement.textContent = message;
+
+}
+
+function clearError(field, errorElement) {
+
+    field.classList.remove("invalid");
+    errorElement.textContent = "";
+
+}
+
+form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    let valid = true;
+
+    successMessage.style.display = "none";
+
+    const nameValue =
+        farmerName.value.trim();
+
+    farmerName.value = nameValue;
+
+    if (nameValue === "") {
+
+        showError(
+            farmerName,
+            farmerNameError,
+            "Farmer name is required."
+        );
+
+        valid = false;
+
+    } else if (!/^[A-Za-z ]+$/.test(nameValue)) {
+
+        showError(
+            farmerName,
+            farmerNameError,
+            "Name should contain only letters and spaces."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            farmerName,
+            farmerNameError
+        );
+
+    }
+
+    const plotValue =
+        plotId.value.trim();
+
+    plotId.value = plotValue;
+
+    if (plotValue === "") {
+
+        showError(
+            plotId,
+            plotIdError,
+            "Plot ID is required."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            plotId,
+            plotIdError
+        );
+
+    }
+
+    const villageValue =
+        village.value.trim();
+
+    village.value = villageValue;
+
+    if (villageValue === "") {
+
+        showError(
+            village,
+            villageError,
+            "Village is required."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            village,
+            villageError
+        );
+
+    }
+
+    const mobileValue =
+        mobile.value.trim();
+
+    mobile.value = mobileValue;
+
+    if (mobileValue === "") {
+
+        showError(
+            mobile,
+            mobileError,
+            "Mobile number is required."
+        );
+
+        valid = false;
+
+    } else if (!/^[6-9][0-9]{9}$/.test(mobileValue)) {
+
+        showError(
+            mobile,
+            mobileError,
+            "Enter a valid 10-digit Indian mobile number."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            mobile,
+            mobileError
+        );
+
+    }
+
+    const emailValue =
+        email.value.trim();
+
+    email.value = emailValue;
+
+    const emailPattern =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailValue === "") {
+
+        showError(
+            email,
+            emailError,
+            "Email is required."
+        );
+
+        valid = false;
+
+    } else if (!emailPattern.test(emailValue)) {
+
+        showError(
+            email,
+            emailError,
+            "Enter a valid email address."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            email,
+            emailError
+        );
+
+    }
+
+    if (cropStage.value === "") {
+
+        showError(
+            cropStage,
+            cropStageError,
+            "Please select a crop stage."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            cropStage,
+            cropStageError
+        );
+
+    }
+
+    if (soilType.value === "") {
+
+        showError(
+            soilType,
+            soilTypeError,
+            "Please select a soil type."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            soilType,
+            soilTypeError
+        );
+
+    }
+
+    if (irrigationMethod.value === "") {
+
+        showError(
+            irrigationMethod,
+            irrigationMethodError,
+            "Please select an irrigation method."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            irrigationMethod,
+            irrigationMethodError
+        );
+
+    }
+
+    if (registrationDate.value === "") {
+
+        showError(
+            registrationDate,
+            registrationDateError,
+            "Registration date is required."
+        );
+
+        valid = false;
+
+    } else if (registrationDate.value > today) {
+
+        showError(
+            registrationDate,
+            registrationDateError,
+            "Registration date cannot be in the future."
+        );
+
+        valid = false;
+
+    } else {
+
+        clearError(
+            registrationDate,
+            registrationDateError
+        );
+
+    }
+
+    if (!valid) {
+
+        event.preventDefault();
+
+    } else {
+
+        successMessage.textContent =
+            "Registration submitted successfully.";
+
+        successMessage.style.display = "block";
+
+    }
+
+});
+
+form.addEventListener("reset", function() {
+
+    setTimeout(function() {
+
+        const fields = [
+            farmerName,
+            mobile,
+            email,
+            plotId,
+            village,
+            cropStage,
+            soilType,
+            irrigationMethod,
+            registrationDate
+        ];
+
+        fields.forEach(function(field) {
+
+            field.classList.remove("invalid");
+
+        });
+
+        const errors =
+            document.querySelectorAll(".error");
+
+        errors.forEach(function(error) {
+
+            error.textContent = "";
+
+        });
+
+        successMessage.style.display = "none";
+
+    }, 0);
+
+});
+
+</script>
+
+</body>
+</html>

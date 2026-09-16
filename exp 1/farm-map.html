@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Farm Location Map</title>
+</head>
+
+<body>
+
+    <header id="header" class="main-header"
+        style="background-color:#355E3B; padding:15px; display: flex; align-items: center; gap: 20px;">
+
+
+        <div style="display: flex; flex-direction: column; justify-content: center;">
+            <h1 style="color:#C1E1C1">Farm Location</h1>
+            <p style="color:#C1E1C1">Smart Irrigation Advisory System</p>
+        </div>
+    </header>
+
+    <nav style="background-color:#f0f0f0; padding:10px;">
+
+        <a href="index.html">Home</a> |
+
+        <a href="about-system.html">About</a> |
+
+        <a href="irrigation-advisory.html">Irrigation Advisory</a> |
+
+        <a href="farm-information.html">Farm Information</a> |
+
+        <a href="farm-map.html">Farm Map</a> |
+
+        <a href="recommendation.html">Recommendations</a> |
+
+        <a href="farmer-registration.html">Farmer Registration</a> |
+
+        <a href="media.html">Media</a>
+
+    </nav>
+
+
+    <hr>
+
+    <main>
+
+        <h2 style=" text-align:center;">Interactive Farm Map</h2>
+
+        <p style=" text-align:center;">
+            Click on any farm plot to view irrigation and crop details.
+        </p>
+
+
+        <div style="display: flex; justify-content: center;">
+            <img src="farm-map.jpg" alt="Interactive farm map showing four sugarcane plots" usemap="#farmmap"
+                width="700" height="400">
+        </div>
+
+        <map name="farmmap">
+
+            <!-- Plot A -->
+            <area shape="rect" coords="0,0,400,250" href="plot-a.html" alt="Plot A" title="Plot A">
+
+            <!-- Plot B -->
+            <area shape="rect" coords="0,250,266,500" href="plot-b.html" alt="Plot B" title="Plot B">
+
+            <!-- Plot C -->
+            <area shape="rect" coords="266,250,533,500" href="plot-c.html" alt="Plot C" title="Plot C">
+
+            <!-- Plot D -->
+            <area shape="rect" coords="533,250,800,500" href="plot-d.html" alt="Plot D" title="Plot D">
+
+        </map>
+
+    </main>
+
+    <hr>
+    <footer style="background-color:#ECFFDC; padding:10px; text-align:center; color:#40826D;">
+
+        <p>
+            © 2026 Smart Irrigation Advisory System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

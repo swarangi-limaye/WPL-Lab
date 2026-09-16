@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Irrigation Advisory Page</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .advisory-title {
+            text-align: center;
+            color: #006A4E;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .advisory-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .content-card {
+            width: 350px;
+            min-height: 200px;
+            padding: 25px;
+            background-color: #ECFFDC;
+            border: 2px solid #3CB371;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+        }
+
+        .content-card h2 {
+            text-align: center;
+            color: #006A4E;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .content-card h3 {
+            color: #355E3B;
+            font-family: Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        .content-card p,
+        .content-card li {
+            font-family: Verdana, sans-serif;
+            font-size: 14px;
+            line-height: 1.7;
+            color: #222;
+        }
+
+        .content-card ul,
+        .content-card ol {
+            padding-left: 22px;
+        }
+
+        .content-card li {
+            margin-bottom: 12px;
+        }
+
+        .content-card abbr {
+            color: #006A4E;
+            font-weight: bold;
+            cursor: help;
+            text-decoration: underline dotted;
+        }
+
+        .content-card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+            transform: translateY(-4px);
+            transition: 0.3s;
+        }
+
+        .page-note {
+            text-align: center;
+            font-family: Verdana, sans-serif;
+            color: #555;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <a href="index.html">
+        <img
+            src="logo.png"
+            alt="Smart Irrigation Advisory System Logo"
+            style="height: 100px; width: 250px;"
+        >
+    </a>
+
+    <h1>IRRIGATION ADVISORY PAGE</h1>
+
+    <p>Smart Irrigation Advisory System</p>
+
+</header>
+
+<nav class="main-nav">
+
+    <a href="index.html">Home</a>
+    <a href="about-system.html">About</a>
+    <a href="irrigation-advisory.html">Irrigation Advisory</a>
+    <a href="farm-information.html">Farm Information</a>
+    <a href="farm-map.html">Farm Map</a>
+    <a href="recommendation.html">Recommendations</a>
+    <a href="farmer-registration.html">Farmer Registration</a>
+    <a href="media.html">Media</a>
+
+</nav>
+
+<main>
+
+    <h1 class="advisory-title">
+        IMPORTANT IRRIGATION ADVISORY
+    </h1>
+
+    <p class="page-note">
+        Follow these recommendations to improve irrigation efficiency
+        and conserve water.
+    </p>
+
+    <div class="advisory-container">
+
+        <section class="content-card">
+
+            <h2>IRRIGATION RECOMMENDATIONS</h2>
+
+            <h3>Evapotranspiration (ET) &amp; Moisture-Based Scheduling</h3>
+
+            <ul>
+
+                <li>
+                    <b>Calculate Net Water Requirement:</b>
+                    Match irrigation volume to crop water loss
+                    (ET<sub>c</sub>).
+                </li>
+
+                <li>
+                    <b>Maintain the 50% Depletion Limit:</b>
+                    Do not allow Management Allowed Depletion (MAD)
+                    to exceed 50% of available water capacity.
+                </li>
+
+                <li>
+                    <b>Monitor Soil Tension:</b>
+                </li>
+
+            </ul>
+
+            <ol>
+
+                <li>
+                    Coarse/Sandy Soil: 20–30 kPa
+                </li>
+
+                <li>
+                    Medium/Loam Soil: 40–50 kPa
+                </li>
+
+                <li>
+                    Heavy/Clay Soil: 50–70 kPa
+                </li>
+
+            </ol>
+
+        </section>
+
+
+        <section class="content-card">
+
+            <h2>WATER CONSERVATION</h2>
+            <ol type="I">
+
+                <li>
+                    Use drip irrigation or micro-sprinklers to reduce
+                    water loss.
+                </li>
+
+                <li>
+                    Schedule irrigation based on soil moisture and
+                    crop needs.
+                </li>
+
+                <li>
+                    Avoid overwatering and runoff by monitoring soil
+                    moisture levels.
+                </li>
+
+            <li>
+                Smart irrigation delivers water precisely when and where
+                crops need it most.
+            </li>
+
+            <li>
+                Drip irrigation applies water directly to plant roots,
+                reducing evaporation and wind drift.
+            </li>
+
+            <li>
+                High-efficiency Drip Irrigation (DI) systems can deliver
+                water directly to the plant base and reduce unnecessary
+                water loss.
+            </li>
+            </ol>
+
+        </section>
+
+
+        <section class="content-card">
+
+            <h2>FARMING TERMINOLOGIES</h2>
+
+            <p>
+                <small>
+                    <em>Hover over the words to see their full forms.</em>
+                </small>
+            </p>
+
+            <ul >
+
+                <li>
+                    <abbr title="Good Agricultural Practices">
+                        GAP
+                    </abbr>
+                </li>
+
+                <li>
+                    <abbr title="High Yielding Varieties">
+                        HYV
+                    </abbr>
+                </li>
+
+                <li>
+                    <abbr title="Integrated Nutrient Management">
+                        INM
+                    </abbr>
+                </li>
+
+            </ul>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="main-footer">
+
+    <p>
+        Smart Irrigation Advisory System
+    </p>
+
+</footer>
+
+</body>
+
+</html>

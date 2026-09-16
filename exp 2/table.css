@@ -1,0 +1,31 @@
+.irrigation-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: white;
+}
+
+.irrigation-table th,
+.irrigation-table td {
+    border: 1px solid #355E3B;
+    padding: 10px;
+}
+
+.irrigation-table th {
+    background-color: #8FBC8F;
+    color: #173B2A;
+}
+
+.irrigation-table tbody tr:nth-child(even) {
+    background-color: #ECFFDC;
+}
+
+.irrigation-table tbody tr:hover {
+    background-color: #C1E1C1;
+}
+
+.irrigation-table tfoot td {
+    background-color: #355E3B;
+    color: white;
+    font-weight: bold;
+}

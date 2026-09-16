@@ -1,0 +1,57 @@
+.page-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #ECFFDC;
+    border: 2px solid #8FBC8F;
+    padding: 15px;
+}
+
+.sidebar h2 {
+    color: #355E3B;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 8px;
+}
+
+.sidebar a {
+    color: #355E3B;
+    text-decoration: none;
+}
+
+.sidebar a:hover {
+    color: #006A4E;
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #C1E1C1;
+    padding: 20px;
+}
+
+.content h2 {
+    color: #355E3B;
+}
+
+.map-container {
+    text-align: center;
+    margin: 20px;
+}
+
+.map-container img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #355E3B;
+}

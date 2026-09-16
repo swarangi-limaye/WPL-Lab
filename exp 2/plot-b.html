@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Plot A Details</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .plot-card {
+            max-width: 850px;
+            margin: 45px auto;
+            padding: 35px;
+            background-color: white;
+            border: 1px solid #d8d5c8;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .plot-card h1 {
+            text-align: center;
+            color: #006A4E;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .plot-details {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Verdana, sans-serif;
+        }
+
+        .plot-details th,
+        .plot-details td {
+            padding: 8px;
+            border: 1px solid #c9c9c9;
+            text-align: left;
+        }
+
+        .plot-details th {
+            width: 35%;
+            background-color: #8FBC8F;
+            color: #064D3B;
+        }
+
+        .plot-details td {
+            background-color: #fafaf7;
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background-color: #3CB371;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+        .back-button:hover {
+            background-color: #2E8B57;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="main-header">
+
+        <a href="index.html">
+            <img
+                src="logo.png"
+                alt="Smart Irrigation Advisory System Logo"
+                style="height: 100px; width: 250px;"
+            >
+        </a>
+
+        <h1>FARM PLOT DETAILS</h1>
+
+        <p>Smart Irrigation Advisory System</p>
+
+    </header>
+
+    <nav class="main-nav">
+
+        <a href="index.html">Home</a>
+        <a href="about-system.html">About</a>
+        <a href="irrigation-advisory.html">Irrigation Advisory</a>
+        <a href="farm-information.html">Farm Information</a>
+        <a href="farm-map.html">Farm Map</a>
+        <a href="recommendation.html">Recommendations</a>
+        <a href="farmer-registration.html">Farmer Registration</a>
+        <a href="media.html">Media</a>
+
+    </nav>
+
+    <main>
+
+        <div class="topbar"></div>
+
+        <section class="plot-card">
+
+            <h1>Plot A Details</h1>
+
+            <table class="plot-details">
+
+                <tr>
+                    <th>Farmer</th>
+                    <td>Madhu Sudhan</td>
+                </tr>
+
+                <tr>
+                    <th>Crop</th>
+                    <td>Sugarcane</td>
+                </tr>
+
+                <tr>
+                    <th>Soil Moisture</th>
+                    <td>52%</td>
+                </tr>
+
+                <tr>
+                    <th>Recommendation</th>
+                    <td>Irrigate tomorrow afternoon.</td>
+                </tr>
+
+            </table
+
+            <a href="farm-map.html" class="back-button">
+                ← Back to Farm Map
+            </a>
+
+        </section>
+
+        <div class="topbar"></div>
+
+    </main>
+
+    <footer class="main-footer">
+
+        <p>
+        Smart Irrigation Advisory System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
