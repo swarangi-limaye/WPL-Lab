@@ -36,3 +36,5 @@
     transform: rotate(360deg);
   }
 }
+.card { border: 1px solid #999; padding: 20px; width: 300px; margin: 20px auto; }
+button { padding: 8px 15px; }
