@@ -1,0 +1,80 @@
+/* Whole page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff7d1;
+}
+
+/* Main headings */
+h1 {
+    color: darkgreen;
+    text-align: center;
+}
+
+h2 {
+    color: #555;
+    text-align: center;
+}
+
+h4 {
+    color: darkgreen;
+}
+
+/* Data Sources Card */
+.data-sources {
+    border: 2px solid darkgreen;
+    box-shadow: 3px 3px 10px gray;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    background-color: #d6ffc1;
+    margin: 20px 0;
+}
+
+/* Data Sources heading */
+.data-sources h4 {
+    margin-top: 0;
+}
+
+/* Data Sources list */
+.data-sources ul {
+    padding-left: 20px;
+}
+
+/* List item spacing */
+.data-sources li {
+    margin: 10px 0;
+}
+
+/* Hover effect */
+.data-sources li:hover {
+    color: green;
+}
+
+/* Workflow list */
+ol li {
+    margin: 8px;
+}
+
+/* Stakeholder list */
+ul > li {
+    margin: 10px;
+}
+
+/* Nested list items */
+li li {
+    margin: 5px;
+}
+
+/* Abbreviations */
+dt {
+    font-weight: bold;
+    color: darkgreen;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: darkgreen;
+    color: white;
+    padding: 15px;
+}

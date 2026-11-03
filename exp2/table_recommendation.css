@@ -1,0 +1,23 @@
+table {
+    width: 90%;
+    margin: 0 auto;              /* Centers the whole table */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 2px solid black;
+    padding: 8px;
+    text-align: center;           /* Centers text inside cells */
+}
+
+th {
+    background-color: #8FBC8F;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #D0F0C0;
+}
+
+tfoot td {
+    background-color: #8FBC8F;
+}

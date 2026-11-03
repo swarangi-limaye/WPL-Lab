@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body style="margin:20px;">
+    <div style="background-color:#95d95d; padding:25px; text-align:center;">
+        <h1>AI-Based Smart Irrigation Advisory System</h1>
+        <h2>Farmer Registration Form</h2>
+    </div>
+
+    <form id="farmerForm" action="#" method="POST" enctype="multipart/form-data">
+        <!-- Personal Details -->
+        <fieldset>
+            <legend>Personal & Contact Details</legend>
+            <p>
+                <label for="name">Farmer Name:</label>
+                <input type="text" id="name" name="farmer-name" required>
+            </p>
+            <p>
+                <label for="mobile">Mobile Number (+91):</label>
+                <input type="tel" id="mobile" name="mobile" maxlength="10" required>
+            </p>
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </p>
+            <p>
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="village" required>
+            </p>
+        </fieldset>
+
+        <!-- Farm & Plot Details -->
+        <fieldset>
+            <legend>Farm & Plot Information</legend>
+            <p>
+                <label for="plot">Plot ID:</label>
+                <input type="number" id="plot" name="plot_id" required>
+            </p>
+            <p>
+                <label for="crop">Crop Variety:</label>
+                <input type="text" id="crop" name="crop_variety" required>
+            </p>
+            <p>
+                <label for="crop_stage">Crop Stage:</label>
+                <select id="crop_stage" name="crop_stage" required>
+                    <option value="">Select Crop Stage</option>
+                    <option value="germination">Germination</option>
+                    <option value="vegetative">Vegetative</option>
+                    <option value="flowering">Flowering</option>
+                    <option value="harvesting">Harvesting</option>
+                </select>
+            </p>
+            <p>
+                <label for="soil_type">Soil Type:</label>
+                <select id="soil_type" name="soil_type" required>
+                    <option value="">Select Soil Type</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silt">Silt</option>
+                </select>
+            </p>
+            <p>
+                <label for="soil_moisture">Soil Moisture (%):</label>
+                <input type="number" id="soil_moisture" name="soil_moisture" min="0" max="100" step="0.1" required>
+            </p>
+            <p>
+                <label for="irrigation">Irrigation Method:</label>
+                <select id="irrigation" name="irrigation_method" required>
+                    <option value="">Select</option>
+                    <option value="surface">Surface Irrigation</option>
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="center_pivot">Center Pivot Irrigation</option>
+                    <option value="subsurface">Subsurface Irrigation</option>
+                </select>
+            </p>
+        </fieldset>
+
+        <!-- System Meta & Photo -->
+        <fieldset>
+            <legend>Registration Info & Attachments</legend>
+            <p>
+                <label for="reg_date">Registration Date:</label>
+                <input type="date" id="reg_date" name="registration_date" required>
+            </p>
+            <p>
+                <label for="farm_photo">Farm Photo:</label>
+                <input type="file" id="farm_photo" name="farm_photo" accept="image/*" required>
+            </p>
+        </fieldset>
+
+        <!-- Preferences -->
+        <fieldset>
+            <legend>Preferences & Services</legend>
+            <p>
+                Preferred Language:
+                <input type="radio" id="english" name="language" value="English">
+                <label for="english">English</label>
+
+                <input type="radio" id="hindi" name="language" value="Hindi">
+                <label for="hindi">Hindi</label>
+
+                <input type="radio" id="other" name="language" value="Other">
+                <label for="other">Other</label>
+            </p>
+            <p>
+                Advisory Services Required: <br>
+                <input type="checkbox" id="weather" name="services" value="Weather Updates">
+                <label for="weather">Weather Updates</label>
+
+                <input type="checkbox" id="fertilizer" name="services" value="Fertilizer Recommendation">
+                <label for="fertilizer">Fertilizer Recommendation</label>
+
+                <input type="checkbox" id="pest" name="services" value="Pest Control">
+                <label for="pest">Pest Control</label>
+
+                <input type="checkbox" id="market" name="services" value="Market Prices">
+                <label for="market">Market Prices</label>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+    </form>
+
+   <!--- <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const farmerForm = document.getElementById('farmerForm');
+
+        // DOM Elements
+        const nameInput = document.getElementById('name');
+        const mobileInput = document.getElementById('mobile');
+        const emailInput = document.getElementById('email');
+        const moistureInput = document.getElementById('soil_moisture');
+        const photoInput = document.getElementById('farm_photo');
+
+        // Set default date to today[cite: 6]
+        const regDateInput = document.getElementById('reg_date');
+        if (regDateInput) {
+            regDateInput.value = new Date().toISOString().split('T')[0];
+        }
+
+        // Form submission validation & handling[cite: 6]
+        farmerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // 1. Mobile Number Validation (10 Digits starting with 6-9)[cite: 6]
+            const mobileRegex = /^[6-9]\d{9}$/;
+            if (!mobileRegex.test(mobileInput.value)) {
+                alert('Please enter a valid 10-digit mobile number.');
+                mobileInput.focus();
+                return;
+            }
+
+            // 2. Soil Moisture Validation (0-100%)[cite: 6]
+            const moistureVal = parseFloat(moistureInput.value);
+            if (isNaN(moistureVal) || moistureVal < 0 || moistureVal > 100) {
+                alert('Soil Moisture percentage must be between 0 and 100.');
+                moistureInput.focus();
+                return;
+            }
+
+            // 3. File Upload Check[cite: 6]
+            if (photoInput.files.length === 0) {
+                alert('Please upload a farm photo.');
+                photoInput.focus();
+                return;
+            }
+
+            // Collect Form Data Object[cite: 6]
+            const formData = new FormData(farmerForm);
+            const registeredDetails = {};
+
+            formData.forEach((value, key) => {
+                if (key === 'farm_photo') {
+                    registeredDetails[key] = value.name; // Get file name[cite: 6]
+                } else {
+                    registeredDetails[key] = value;
+                }
+            });
+
+            console.log('Farmer Registration Data Submitted Successfully:', registeredDetails);
+            alert(`Registration successful for ${nameInput.value}! Data logged to console.`);
+        });
+
+        // Reset Event Handling[cite: 6]
+        farmerForm.addEventListener('reset', () => {
+            console.log('Form cleared.');
+        });
+    });
+</script>
+-->
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const farmerForm = document.getElementById('farmerForm');
+
+        // DOM Elements
+        const nameInput = document.getElementById('name');
+        const mobileInput = document.getElementById('mobile');
+        const emailInput = document.getElementById('email');
+        const moistureInput = document.getElementById('soil_moisture');
+        const photoInput = document.getElementById('farm_photo');
+
+        // Task 4 DOM Elements
+        const cropStageInput = document.getElementById('crop_stage');
+        const soilTypeInput = document.getElementById('soil_type');
+        const irrigationInput = document.getElementById('irrigation');
+        const regDateInput = document.getElementById('reg_date');
+
+        // Set default date to today[cite: 7]
+        if (regDateInput && !regDateInput.value) {
+            regDateInput.value = new Date().toISOString().split('T')[0];
+        }
+
+        // Helper function to apply/remove visual field highlighting on error
+        function highlightField(element, isInvalid) {
+            if (isInvalid) {
+                element.style.border = '2px solid red';
+                element.style.backgroundColor = '#ffe6e6';
+            } else {
+                element.style.border = '';
+                element.style.backgroundColor = '';
+            }
+        }
+
+        // Clear highlight dynamically when user modifies input
+        const watchedInputs = [cropStageInput, soilTypeInput, irrigationInput, regDateInput, mobileInput, moistureInput, photoInput];
+        watchedInputs.forEach(input => {
+            if (input) {
+                input.addEventListener('change', () => highlightField(input, false));
+                input.addEventListener('input', () => highlightField(input, false));
+            }
+        });
+
+        // Form submission validation & handling[cite: 7]
+        farmerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Clear previous error highlights
+            watchedInputs.forEach(input => input && highlightField(input, false));
+
+            // 1. Mobile Number Validation (10 Digits starting with 6-9)[cite: 7]
+            const mobileRegex = /^[6-9]\d{9}$/;
+            if (!mobileRegex.test(mobileInput.value)) {
+                alert('Please enter a valid 10-digit mobile number.');
+                highlightField(mobileInput, true);
+                mobileInput.focus();
+                return;
+            }
+
+            // 2. Task 4: Dropdown Selection Validations
+            if (!cropStageInput.value) {
+                alert('Please select a Crop Stage.');
+                highlightField(cropStageInput, true);
+                cropStageInput.focus();
+                return;
+            }
+
+            if (!soilTypeInput.value) {
+                alert('Please select a Soil Type.');
+                highlightField(soilTypeInput, true);
+                soilTypeInput.focus();
+                return;
+            }
+
+            if (!irrigationInput.value) {
+                alert('Please select an Irrigation Method.');
+                highlightField(irrigationInput, true);
+                irrigationInput.focus();
+                return;
+            }
+
+            // 3. Soil Moisture Validation (0-100%)[cite: 7]
+            const moistureVal = parseFloat(moistureInput.value);
+            if (isNaN(moistureVal) || moistureVal < 0 || moistureVal > 100) {
+                alert('Soil Moisture percentage must be between 0 and 100.');
+                highlightField(moistureInput, true);
+                moistureInput.focus();
+                return;
+            }
+
+            // 4. Task 4: Registration Date Validation (Required & No Future Dates)
+            if (!regDateInput.value) {
+                alert('Please select a Registration Date.');
+                highlightField(regDateInput, true);
+                regDateInput.focus();
+                return;
+            }
+
+            const selectedDate = new Date(regDateInput.value);
+            const today = new Date();
+            today.setHours(23, 59, 59, 999); // Allow all hours of current day
+
+            if (selectedDate > today) {
+                alert('Registration Date cannot be in the future. Please select today or a past date.');
+                highlightField(regDateInput, true);
+                regDateInput.focus();
+                return;
+            }
+
+            // 5. File Upload Check[cite: 7]
+            if (photoInput.files.length === 0) {
+                alert('Please upload a farm photo.');
+                highlightField(photoInput, true);
+                photoInput.focus();
+                return;
+            }
+
+            // Collect Form Data Object[cite: 7]
+            const formData = new FormData(farmerForm);
+            const registeredDetails = {};
+
+            formData.forEach((value, key) => {
+                if (key === 'farm_photo') {
+                    registeredDetails[key] = value.name; // Get file name[cite: 7]
+                } else {
+                    registeredDetails[key] = value;
+                }
+            });
+
+            console.log('Farmer Registration Data Submitted Successfully:', registeredDetails);
+            alert(`Registration successful for ${nameInput.value}! Data logged to console.`);
+        });
+
+        // Reset Event Handling[cite: 7]
+        farmerForm.addEventListener('reset', () => {
+            watchedInputs.forEach(input => input && highlightField(input, false));
+            console.log('Form cleared.');
+        });
+    });
+   
+    // 1. Declare variables and dynamically accept inputs from the user[cite: 7]
+    var farmerName = prompt("Enter Farmer Name:");
+    var plotID = prompt("Enter Plot ID:");
+    var currentMoisture = parseFloat(prompt("Enter Current Soil Moisture (%):"));
+    var requiredMoisture = parseFloat(prompt("Enter Required Soil Moisture (%):"));
+
+    // 2. Calculate the moisture deficit[cite: 7]
+    var moistureDeficit = requiredMoisture - currentMoisture;
+
+    // Determine irrigation status
+    var irrigationStatus = "";
+    if (moistureDeficit > 0) {
+        irrigationStatus = "Irrigation Required! Moisture Deficit: " + moistureDeficit + "%";
+    } else {
+        irrigationStatus = "Sufficient Moisture. No Irrigation Needed.";
+    }
+
+    // 3. Display status using alert()[cite: 7]
+    alert("--- Smart Irrigation Advisory ---\n" +
+          "Farmer Name: " + farmerName + "\n" +
+          "Plot ID: " + plotID + "\n" +
+          "Current Moisture: " + currentMoisture + "%\n" +
+          "Required Moisture: " + requiredMoisture + "%\n" +
+          "Status: " + irrigationStatus);
+
+    // 4. Display status using document.write()[cite: 7]
+    document.write("<h2>Smart Irrigation Advisory Report</h2>");
+    document.write("<p><b>Farmer Name:</b> " + farmerName + "</p>");
+    document.write("<p><b>Plot ID:</b> " + plotID + "</p>");
+    document.write("<p><b>Current Soil Moisture:</b> " + currentMoisture + "%</p>");
+    document.write("<p><b>Required Soil Moisture:</b> " + requiredMoisture + "%</p>");
+    document.write("<p><b>Moisture Deficit:</b> " + moistureDeficit + "%</p>");
+    document.write("<p><b>Irrigation Status:</b> " + irrigationStatus + "</p>");
+
+</script>
+
+```
+
+    <footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System</small></p>
+    </footer>
+
+    
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Farmer Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+
+     <header style="background-color: #6b8e23; padding: 20px; border: 5px; display: flex; align-items: center; gap: 20px;">
+        <a href="index.html" style="text-decoration: none;">
+            <img src="C:\Users\Dhvani\Downloads\image.png" alt="Smart Irrigation Logo" style="height: 120px; width: auto; display: block;">
+        </a>
+
+        <div>
+            <h2 style="color: #f7f3e9; margin: 0 0 8px 0; font-size: 1rem;">
+                KJSSE | KIAAR | Godavari Biorefineries
+            </h2>
+
+            <h1 style="color: #fffaf0; margin: 0 0 8px 0; font-size: 2rem;">
+                Smart Irrigation Advisory System
+            </h1>
+
+            <p style="color: #fffaf0;  margin: 0;">
+                <strong>Current Crop Season:</strong> Kharif 2026
+            </p>
+        </div>
+    </header>
+
+    <div class="form-container">
+        <form action="#" method="GET">
+            <p>
+                <label for="name">Farmer Name:</label>
+                <input type="text" id="name" name="farmer-name">
+            </p>
+
+            <p>
+                <label for="mobile">Mobile Number (+91):</label>
+                <input type="text" id="mobile" name="mobile">
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="text" id="email" name="email">
+            </p>
+
+            <p>
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="village">
+            </p>
+
+            <p>
+                <label for="plot">Plot ID:</label>
+                <input type="number" id="plot" name="plot_id">
+            </p>
+
+            <p>
+                <label for="crop">Crop Variety:</label>
+                <input type="text" id="crop" name="crop_variety">
+            </p>
+
+            <p>
+                <label for="area">Farm Area (Acres):</label>
+                <input type="number" id="area" name="farm_area" step="0.01">
+            </p>
+
+            <p>
+                <label for="irrigation">Irrigation Method:</label>
+                <select id="irrigation" name="irrigation_method">
+                    <option value="">Select</option>
+                    <option value="surface">Surface Irrigation</option>
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="center_pivot">Center Pivot Irrigation</option>
+                    <option value="subsurface">Subsurface Irrigation</option>
+                </select>
+            </p>
+
+            <p>
+                <label>Preferred Language:</label>
+                <div class="radio-group">
+                    <input type="radio" id="english" name="language" value="English">
+                    <label for="english" style="flex:none; font-weight:normal;">English</label>
+
+                    <input type="radio" id="hindi" name="language" value="Hindi">
+                    <label for="hindi" style="flex:none; font-weight:normal;">Hindi</label>
+
+                    <input type="radio" id="other" name="language" value="Other">
+                    <label for="other" style="flex:none; font-weight:normal;">Other</label>
+                </div>
+            </p>
+
+            <p>
+                <label>Advisory Services Required:</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="weather" name="services" value="Weather Updates">
+                    <label for="weather" style="flex:none; font-weight:normal;">Weather Updates</label>
+
+                    <input type="checkbox" id="fertilizer" name="services" value="Fertilizer Recommendation">
+                    <label for="fertilizer" style="flex:none; font-weight:normal;">Fertilizer Recommendation</label>
+
+                    <input type="checkbox" id="pest" name="services" value="Pest Control">
+                    <label for="pest" style="flex:none; font-weight:normal;">Pest Control</label>
+
+                    <input type="checkbox" id="market" name="services" value="Market Prices">
+                    <label for="market" style="flex:none; font-weight:normal;">Market Prices</label>
+                </div>
+            </p>
+
+            <div class="button-container">
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </div>
+        </form>
+    </div>
+
+    <footer style="background-color: #5c3317; color: #e8c87a; text-align: center; padding: 15px;">
+        <p style="margin: 0;">© 2026 Smart Irrigation Advisory System</p>
+    </footer>
+
+</body>
+</html>

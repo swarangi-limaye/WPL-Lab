@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Farm Location Map</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="main-header">
+
+        <div>
+            <h1>Farm Location</h1>
+            <p>Smart Irrigation Advisory System</p>
+        </div>
+
+    </header>
+
+
+    <!-- NAVIGATION -->
+    <nav class="navigation">
+
+        <a href="index.html">Home</a> |
+        <a href="about-system.html">About</a> |
+        <a href="irrigation-advisory.html">Irrigation Advisory</a> |
+        <a href="farm-information.html">Farm Information</a> |
+        <a href="farm-map.html">Farm Map</a> |
+        <a href="recommendation.html">Recommendations</a> |
+        <a href="farmer-registration.html">Farmer Registration</a> |
+        <a href="media.html">Media</a>
+
+    </nav>
+
+
+    <!-- MAIN PAGE LAYOUT -->
+    <div class="container">
+
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+
+            <h2>Farm Information</h2>
+
+            <ul>
+                <li>Farm Details</li>
+                <li>Crop Information</li>
+                <li>Soil Moisture</li>
+                <li>Irrigation Status</li>
+                <li>Weather Information</li>
+            </ul>
+
+        </aside>
+
+
+        <!-- RIGHT CONTENT -->
+        <main class="content">
+
+            <h2>Interactive Farm Map</h2>
+
+            <p>
+                Click on any farm plot to view irrigation and crop details.
+            </p>
+
+
+            <img src="farm-map.jpg"
+                 alt="Interactive farm map showing four sugarcane plots"
+                 usemap="#farmmap"
+                 width="700"
+                 height="400">
+
+
+            <!-- IMAGE MAP -->
+            <map name="farmmap">
+
+                <!-- Plot A -->
+                <area shape="rect"
+                      coords="0,0,400,250"
+                      href="plot-a.html"
+                      alt="Plot A"
+                      title="Plot A">
+
+                <!-- Plot B -->
+                <area shape="rect"
+                      coords="0,250,266,500"
+                      href="plot-b.html"
+                      alt="Plot B"
+                      title="Plot B">
+
+                <!-- Plot C -->
+                <area shape="rect"
+                      coords="266,250,533,500"
+                      href="plot-c.html"
+                      alt="Plot C"
+                      title="Plot C">
+
+                <!-- Plot D -->
+                <area shape="rect"
+                      coords="533,250,800,500"
+                      href="plot-d.html"
+                      alt="Plot D"
+                      title="Plot D">
+
+            </map>
+
+        </main>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Smart Irrigation Advisory System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

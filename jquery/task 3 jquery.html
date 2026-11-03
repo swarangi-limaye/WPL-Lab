@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Farmer Registration Form</title>
+
+    <!-- jQuery Library -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body { margin: 20px; font-family: Arial, sans-serif; }
+        .header { background-color: #95d95d; padding: 25px; text-align: center; }
+        fieldset { margin-top: 15px; border: 2px solid #5a9e29; }
+        legend { font-weight: bold; padding: 0 8px; }
+        label { display: inline-block; min-width: 230px; }
+        input[readonly] { background-color: #f1f1f1; }
+        .field-error { border: 2px solid red; background-color: #ffe6e6; }
+        .error-msg { color: red; font-size: 13px; font-weight: bold; margin-left: 10px; }
+        #form_message { margin-top: 20px; padding: 15px; border: 2px solid #5a9e29;
+                        background-color: #f9fff0; display: none; }
+        footer { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>AI-Based Smart Irrigation Advisory System</h1>
+        <h2>Farmer Registration Form</h2>
+    </div>
+
+    <!-- novalidate: browser's built-in checks are turned off so jQuery handles validation -->
+    <form id="farmerForm" action="#" method="POST" enctype="multipart/form-data" novalidate>
+
+        <!-- Personal Details -->
+        <fieldset>
+            <legend>Personal &amp; Contact Details</legend>
+            <p>
+                <label for="name">Farmer Name:</label>
+                <input type="text" id="name" name="farmer_name">
+            </p>
+            <p>
+                <label for="mobile">Mobile Number (+91):</label>
+                <input type="tel" id="mobile" name="mobile" maxlength="10">
+            </p>
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email">
+            </p>
+            <p>
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="village">
+            </p>
+        </fieldset>
+
+        <!-- Farm & Plot Details -->
+        <fieldset>
+            <legend>Farm &amp; Plot Information</legend>
+            <p>
+                <label for="plot">Plot ID:</label>
+                <input type="text" id="plot" name="plot_id" placeholder="e.g., AGR-1234">
+            </p>
+            <p>
+                <label for="crop">Crop Variety:</label>
+                <input type="text" id="crop" name="crop_variety">
+            </p>
+            <p>
+                <label for="crop_stage">Crop Stage:</label>
+                <select id="crop_stage" name="crop_stage">
+                    <option value="">Select Crop Stage</option>
+                    <option value="germination">Germination</option>
+                    <option value="vegetative">Vegetative</option>
+                    <option value="flowering">Flowering</option>
+                    <option value="harvesting">Harvesting</option>
+                </select>
+            </p>
+            <p>
+                <label for="soil_type">Soil Type:</label>
+                <select id="soil_type" name="soil_type">
+                    <option value="">Select Soil Type</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silt">Silt</option>
+                </select>
+            </p>
+            <p>
+                <label for="farm_area">Farm Area (in Acres):</label>
+                <input type="number" id="farm_area" name="farm_area" min="0.1" step="0.1">
+            </p>
+            <p>
+                <label for="pump_status">Pump Status:</label>
+                <select id="pump_status" name="pump_status">
+                    <option value="">Select Status</option>
+                    <option value="ON">ON</option>
+                    <option value="OFF">OFF</option>
+                </select>
+            </p>
+            <p>
+                <label for="soil_moisture">Current Soil Moisture (%):</label>
+                <input type="number" id="soil_moisture" name="soil_moisture" min="0" max="100" step="0.1">
+            </p>
+            <p>
+                <label for="required_moisture">Required Soil Moisture (%):</label>
+                <input type="number" id="required_moisture" name="required_moisture" min="0" max="100" step="0.1">
+            </p>
+            <p>
+                <label for="rain_expected">Rainfall Forecast (Rain Expected?):</label>
+                <select id="rain_expected" name="rain_expected">
+                    <option value="">Select Forecast</option>
+                    <option value="yes">Yes (Rain Expected)</option>
+                    <option value="no">No Rain Expected</option>
+                </select>
+            </p>
+            <p>
+                <label for="moisture_deficit">Moisture Deficit (%):</label>
+                <input type="text" id="moisture_deficit" name="moisture_deficit" readonly placeholder="Auto-calculated">
+            </p>
+            <p>
+                <label for="irrigation_status">Irrigation Status:</label>
+                <input type="text" id="irrigation_status" name="irrigation_status" readonly placeholder="Auto-calculated" style="width: 250px;">
+            </p>
+            <p>
+                <label for="irrigation">Irrigation Method:</label>
+                <select id="irrigation" name="irrigation_method">
+                    <option value="">Select</option>
+                    <option value="surface">Surface Irrigation</option>
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="center_pivot">Center Pivot Irrigation</option>
+                    <option value="subsurface">Subsurface Irrigation</option>
+                </select>
+            </p>
+        </fieldset>
+
+        <!-- Registration Info & Photo -->
+        <fieldset>
+            <legend>Registration Info &amp; Attachments</legend>
+            <p>
+                <label for="reg_date">Registration Date:</label>
+                <input type="date" id="reg_date" name="registration_date">
+            </p>
+            <p>
+                <label for="farm_photo">Farm Photo:</label>
+                <input type="file" id="farm_photo" name="farm_photo" accept="image/*">
+            </p>
+        </fieldset>
+
+        <!-- Preferences -->
+        <fieldset>
+            <legend>Preferences &amp; Services</legend>
+            <p>
+                Preferred Language:
+                <input type="radio" id="english" name="language" value="English">
+                <label for="english" style="min-width:0">English</label>
+
+                <input type="radio" id="hindi" name="language" value="Hindi">
+                <label for="hindi" style="min-width:0">Hindi</label>
+
+                <input type="radio" id="other" name="language" value="Other">
+                <label for="other" style="min-width:0">Other</label>
+            </p>
+            <p>
+                Advisory Services Required: <br>
+                <input type="checkbox" id="weather" name="services" value="Weather Updates">
+                <label for="weather" style="min-width:0">Weather Updates</label>
+
+                <input type="checkbox" id="fertilizer" name="services" value="Fertilizer Recommendation">
+                <label for="fertilizer" style="min-width:0">Fertilizer Recommendation</label>
+
+                <input type="checkbox" id="pest" name="services" value="Pest Control">
+                <label for="pest" style="min-width:0">Pest Control</label>
+
+                <input type="checkbox" id="market" name="services" value="Market Prices">
+                <label for="market" style="min-width:0">Market Prices</label>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" id="submit_btn" value="Submit">
+            <input type="reset" id="reset_btn" value="Reset">
+        </p>
+    </form>
+
+    <!-- Message area (filled using jQuery) -->
+    <div id="form_message"></div>
+
+    <script>
+        $(document).ready(function () {
+
+            // Set today's date as default registration date
+            var today = new Date().toISOString().split('T')[0];
+            $('#reg_date').val(today);
+
+            // Auto-calculate Moisture Deficit and Irrigation Status
+            function calculateMoistureDeficit() {
+                var current  = parseFloat($('#soil_moisture').val());
+                var required = parseFloat($('#required_moisture').val());
+                var rain     = $('#rain_expected').val();
+                var $status  = $('#irrigation_status');
+
+                // Moisture Deficit = Required - Current
+                if (!isNaN(current) && !isNaN(required)) {
+                    $('#moisture_deficit').val((required - current).toFixed(1) + '%');
+                } else {
+                    $('#moisture_deficit').val('');
+                }
+
+                // Decision rules (rain is checked first)
+                if (rain === 'yes') {
+                    $status.val('Postpone Irrigation').css({ color: '#0056b3', fontWeight: 'bold' });
+                } else if (!isNaN(current)) {
+                    if (current < 30) {
+                        $status.val('Irrigation Required Immediately').css({ color: 'red', fontWeight: 'bold' });
+                    } else if (current <= 50) {
+                        $status.val('Monitor Soil Moisture').css({ color: 'darkorange', fontWeight: 'bold' });
+                    } else {
+                        $status.val('Irrigation Not Required').css({ color: 'green', fontWeight: 'bold' });
+                    }
+                } else {
+                    $status.val('');
+                }
+            }
+
+            $('#soil_moisture, #required_moisture').on('input', calculateMoistureDeficit);
+            $('#rain_expected').on('change', calculateMoistureDeficit);
+
+            // Remove error message and red highlight dynamically when user edits field
+            $('#farmerForm').on('input change', 'input, select', function () {
+                $(this).removeClass('field-error');
+                $(this).next('.error-msg').remove();
+            });
+
+            // TASK 2 & TASK 3: Form Submit Validations using jQuery
+            $('#farmerForm').on('submit', function (event) {
+                event.preventDefault(); // Prevent form submission until all fields are valid
+
+                // Clear previous error messages and highlighting
+                $('.error-msg').remove();
+                $('.field-error').removeClass('field-error');
+
+                var isValid = true;
+
+                // Helper function to highlight field and display error message beside it
+                function showError($field, message) {
+                    $field.addClass('field-error');
+                    $field.after('<span class="error-msg">' + message + '</span>');
+                    isValid = false;
+                }
+
+                // --- Task 2 Validations ---
+
+                // 1. Validate Farmer Name (Not empty & Alphabets/Spaces only)
+                var $nameInput = $('#name');
+                var nameVal = $.trim($nameInput.val());
+                $nameInput.val(nameVal);
+
+                var namePattern = /^[a-zA-Z\s]+$/;
+                if (nameVal === '') {
+                    showError($nameInput, 'Farmer Name is required.');
+                } else if (!namePattern.test(nameVal)) {
+                    showError($nameInput, 'Farmer Name must contain alphabetic characters and spaces only.');
+                }
+
+                // 2. Validate Village (Not empty)
+                var $villageInput = $('#village');
+                var villageVal = $.trim($villageInput.val());
+                $villageInput.val(villageVal);
+
+                if (villageVal === '') {
+                    showError($villageInput, 'Village is required.');
+                }
+
+                // 3. Validate Plot ID (Not empty)
+                var $plotInput = $('#plot');
+                var plotVal = $.trim($plotInput.val());
+                $plotInput.val(plotVal);
+
+                if (plotVal === '') {
+                    showError($plotInput, 'Plot ID is required.');
+                }
+
+                // --- Task 3 Validations ---
+
+                // 4. Validate Mobile Number (10-digit Indian Mobile Number)
+                var $mobileInput = $('#mobile');
+                var mobileVal = $.trim($mobileInput.val());
+                $mobileInput.val(mobileVal);
+
+                var mobilePattern = /^[6-9]\d{9}$/;
+                if (mobileVal === '') {
+                    showError($mobileInput, 'Mobile Number is required.');
+                } else if (!mobilePattern.test(mobileVal)) {
+                    showError($mobileInput, 'Enter a valid 10-digit mobile number starting with 6-9.');
+                }
+
+                // 5. Validate Email Address
+                var $emailInput = $('#email');
+                var emailVal = $.trim($emailInput.val());
+                $emailInput.val(emailVal);
+
+                var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+                if (emailVal === '') {
+                    showError($emailInput, 'Email Address is required.');
+                } else if (!emailPattern.test(emailVal)) {
+                    showError($emailInput, 'Enter a valid email address (e.g., name@example.com).');
+                }
+
+                // Submit Form Result
+                if (isValid) {
+                    $('#form_message')
+                        .html('<strong>Success!</strong> Contact information and required fields validated successfully. Form is ready to submit.')
+                        .slideDown();
+                } else {
+                    $('#form_message').hide().empty();
+                }
+            });
+
+            // Reset Form Handler
+            $('#farmerForm').on('reset', function () {
+                $('.error-msg').remove();
+                $('#farmerForm .field-error').removeClass('field-error');
+                $('#moisture_deficit, #irrigation_status').val('');
+                $('#form_message').hide().empty();
+                setTimeout(function () { $('#reg_date').val(today); }, 0);
+            });
+        });
+    </script>
+
+    <footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System</small></p>
+    </footer>
+</body>
+</html>

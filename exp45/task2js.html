@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body style="margin:20px;">
+    <div style="background-color:#95d95d; padding:25px; text-align:center;">
+        <h1>AI-Based Smart Irrigation Advisory System</h1>
+        <h2>Farmer Registration Form</h2>
+    </div>
+
+ <form id="farmerForm" action="#" method="POST" novalidate>
+
+    <p>
+        <label for="name">Farmer Name:</label>
+        <input type="text" id="name" name="farmer-name">
+        <span id="nameError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+    </p>
+
+    <p>
+        <label for="village">Village:</label>
+        <input type="text" id="village" name="village">
+        <span id="villageError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+    </p>
+
+    <p>
+        <label for="plot">Plot ID:</label>
+        <input type="number" id="plot" name="plot_id">
+        <span id="plotError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+    </p>
+
+    <p>
+        <label for="mobile">Mobile Number (+91):</label>
+        <input type="tel" id="mobile" name="mobile" maxlength="10">
+        <span id="mobileError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+    </p>
+
+    <p>
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email">
+        <span id="emailError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+    </p>
+
+    <p>
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </p>
+
+</form> 
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const farmerForm = document.getElementById('farmerForm');
+        const nameInput = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+
+        // Confirm form element exists before continuing[cite: 3]
+        if (!farmerForm) {
+            console.error("Error: Could not find <form id='farmerForm'> in HTML.");
+            return;
+        }
+
+        // Single responsibility function to validate Farmer Name[cite: 3]
+        function validateName() {
+            if (!nameInput || !nameError) return false;
+
+            const nameValue = nameInput.value.trim();
+            // Regex strictly allows only letters (a-z, A-Z) and spaces[cite: 3]
+            const alphaSpaceRegex = /^[A-Za-z\s]+$/;
+
+            if (nameValue === '') {
+                nameError.textContent = 'Farmer Name is required.';
+                return false;
+            } else if (!alphaSpaceRegex.test(nameValue)) {
+                nameError.textContent = 'Farmer Name must contain alphabetic characters and spaces only.';
+                return false;
+            } else {
+                nameError.textContent = ''; // Clear error if valid[cite: 3]
+                return true;
+            }
+        }
+
+        // Trigger validation while typing or leaving field[cite: 3]
+        if (nameInput) {
+            nameInput.addEventListener('input', validateName);
+            nameInput.addEventListener('blur', validateName);
+        }
+
+        // Prevent submission if validation fails[cite: 3]
+        farmerForm.addEventListener('submit', (event) => {
+            const isNameValid = validateName();
+
+            if (!isNameValid) {
+                event.preventDefault(); // Blocks form submission[cite: 3]
+                console.log('Submission blocked: Invalid Farmer Name');
+            }
+        });
+    });
+</script>
+
+    <footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System</small></p>
+    </footer>
+
+    
+</body>
+</html>

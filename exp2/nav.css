@@ -1,0 +1,64 @@
+/* Book Card */
+
+nav{
+	 text-align: center;
+    background-color: #95d95d;
+}
+
+
+nav a {
+    display: inline-block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: green;
+}
+
+.book-card {
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #355E3B;
+    background-color: white;
+    box-shadow: 3px 3px 10px gray;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.book-card h3 {
+    color: #355E3B;
+}
+
+.book-card p {
+    color: #333333;
+}
+/* Image Gallery */
+
+.gallery {
+    text-align: center;
+}
+
+/* Same size for all images */
+.gallery img {
+    width: 250px;
+    height: 180px;
+    object-fit: cover;
+
+    /* Border */
+    border: 3px solid #355E3B;
+
+    /* Spacing */
+    margin: 15px;
+
+    /* Smooth zoom */
+    transition: transform 0.3s ease;
+}
+
+/* Hover zoom effect */
+.gallery img:hover {
+    transform: scale(1.1);
+}

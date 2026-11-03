@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.offer {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #8b0000;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 25px 40px;
+    border-radius: 10px;
+
+    /* Shadow around the box */
+    box-shadow: 0 0 15px orange;
+
+    /* Shadow around the text */
+    text-shadow: 2px 2px 4px white;
+
+    /* Animation */
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px orange;
+    }
+
+    to {
+        box-shadow: 0 0 30px red;
+    }
+}

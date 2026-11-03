@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+        <title>Farmer Registration Form</title>
+		<link rel= "stylesheet" href="form.css">
+</head>
+
+<body style="margin:20px;">
+    <div style="background-color:#95d95d; padding:25px; text-align:center;">
+    <h1>AI-Based Smart Irrigation Advisory System</h1>
+    <h2>Farmer Registration Form</h2>
+</div>
+    <form action="#" method="GET">
+
+
+        <p>
+            <label for="name">Farmer Name:</label>
+            <input type="text" id="name" name="farmer-name" required>
+        </p>
+
+
+        <p>
+            <label for="mobile">Mobile Number (+91):</label>
+            <input type="tel" id="mobile" name="mobile"
+                 maxlength="10" required>
+        </p>
+
+
+        <p>
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required>
+        </p>
+
+
+        <p>
+            <label for="village">Village:</label>
+            <input type="text" id="village" name="village" required>
+        </p>
+
+
+        <p>
+            <label for="plot">Plot ID:</label>
+            <input type="number" id="plot" name="plot_id" required>
+        </p>
+
+
+        <p>
+            <label for="crop">Crop Variety:</label>
+            <input type="text" id="crop" name="crop_variety" required>
+        </p>
+
+
+        <p>
+            <label for="area">Farm Area (Acres):</label>
+            <input type="number" id="area" name="farm_area" step="0.01" required>
+        </p>
+
+
+        <p>
+          <label for="irrigation">Irrigation Method:</label>
+         <select id="irrigation" name="irrigation_method">
+                <option value="">Select</option>
+                <option value="surface">Surface Irrigation</option>
+                <option value="drip">Drip Irrigation</option>
+                <option value="sprinkler">Sprinkler Irrigation</option>
+                <option value="center_pivot">Center Pivot Irrigation</option>
+                <option value="subsurface">Subsurface Irrigation</option>
+         </select>
+        </p>
+
+
+        <p>
+            Preferred Language:
+          <input type="radio" id="english" name="language" value="English">
+          <label for="english">English</label>
+
+
+          <input type="radio" id="hindi" name="language" value="Hindi">
+            <label for="hindi">Hindi</label>
+
+
+         <input type="radio" id="other" name="language" value="Other">
+            <label for="other">Other</label>
+        </p>
+
+
+    <p>
+            Advisory Services Required:
+            <br>
+
+
+         <input type="checkbox" id="weather" name="services" value="Weather Updates">
+            <label for="weather">Weather Updates</label>
+
+
+        <input type="checkbox" id="fertilizer" name="services" value="Fertilizer Recommendation">
+            <label for="fertilizer">Fertilizer Recommendation</label>
+
+
+         <input type="checkbox" id="pest" name="services" value="Pest Control">
+            <label for="pest">Pest Control</label>
+
+
+        <input type="checkbox" id="market" name="services" value="Market Prices">
+        <label for="market">Market Prices</label>
+    </p>
+
+
+    <p>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</p>
+
+
+    </form>
+<footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System </small></p>
+    </footer>
+</body>
+
+
+</html>
+

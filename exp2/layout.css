@@ -1,0 +1,53 @@
+/* Page Layout */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #355E3B;
+    padding: 15px;
+    color: #C1E1C1;
+}
+
+/* Navigation */
+nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #355E3B;
+    margin: 10px;
+}
+
+/* Main layout */
+.container {
+    display: flex;
+    min-height: 500px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 20%;
+    background-color: #D0F0C0;
+    padding: 20px;
+}
+
+/* Content */
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #ECFFDC;
+    padding: 10px;
+    text-align: center;
+    color: #40826D;
+}

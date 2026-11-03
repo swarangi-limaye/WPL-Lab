@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Farmer Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body style="margin:20px;">
+
+    <div style="background-color:#95d95d; padding:25px; text-align:center;">
+        <h1>AI-Based Smart Irrigation Advisory System</h1>
+        <h2>Farmer Registration Form</h2>
+    </div>
+
+    <form id="farmerForm" action="#" method="POST" enctype="multipart/form-data" novalidate onsubmit="return validateForm()" onreset="clearErrors()">
+        
+        <!-- Personal & Contact Details -->
+        <fieldset>
+            <legend>Personal & Contact Details</legend>
+            <p>
+                <label for="name">Farmer Name:</label>
+                <input type="text" id="name" name="farmer-name" oninput="validateName()">
+                <span id="nameError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="mobile">Mobile Number (+91):</label>
+                <input type="tel" id="mobile" name="mobile" maxlength="10" oninput="validateMobile()">
+                <span id="mobileError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" oninput="validateEmail()">
+                <span id="emailError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="village">Village:</label>
+                <input type="text" id="village" name="village" oninput="validateVillage()">
+                <span id="villageError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+        </fieldset>
+
+        <!-- Farm & Plot Details -->
+        <fieldset>
+            <legend>Farm & Plot Information</legend>
+            <p>
+                <label for="plot">Plot ID:</label>
+                <input type="number" id="plot" name="plot_id" oninput="validatePlot()">
+                <span id="plotError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="crop">Crop Variety:</label>
+                <input type="text" id="crop" name="crop_variety" oninput="validateCrop()">
+                <span id="cropError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="crop_stage">Crop Stage:</label>
+                <select id="crop_stage" name="crop_stage" onchange="validateCropStage()">
+                    <option value="">Select</option>
+                    <option value="germination">Germination</option>
+                    <option value="vegetative">Vegetative</option>
+                    <option value="flowering">Flowering</option>
+                    <option value="harvesting">Harvesting</option>
+                </select>
+                <span id="cropStageError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="area">Farm Area (Acres):</label>
+                <input type="number" id="area" name="farm_area" step="0.01" oninput="validateArea()">
+                <span id="areaError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="soil_type">Soil Type:</label>
+                <select id="soil_type" name="soil_type" onchange="validateSoilType()">
+                    <option value="">Select</option>
+                    <option value="clay">Clay</option>
+                    <option value="sandy">Sandy</option>
+                    <option value="loamy">Loamy</option>
+                    <option value="silt">Silt</option>
+                </select>
+                <span id="soilTypeError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="soil_moisture">Soil Moisture (%):</label>
+                <input type="number" id="soil_moisture" name="soil_moisture" step="0.1" oninput="validateMoisture()">
+                <span id="moistureError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="irrigation">Irrigation Method:</label>
+                <select id="irrigation" name="irrigation_method" onchange="validateIrrigation()">
+                    <option value="">Select</option>
+                    <option value="surface">Surface Irrigation</option>
+                    <option value="drip">Drip Irrigation</option>
+                    <option value="sprinkler">Sprinkler Irrigation</option>
+                    <option value="center_pivot">Center Pivot Irrigation</option>
+                    <option value="subsurface">Subsurface Irrigation</option>
+                </select>
+                <span id="irrigationError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+        </fieldset>
+
+        <!-- System Meta & Photo -->
+        <fieldset>
+            <legend>Registration Info & Attachments</legend>
+            <p>
+                <label for="reg_date">Registration Date:</label>
+                <input type="date" id="reg_date" name="registration_date" onchange="validateRegDate()">
+                <span id="dateError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                <label for="farm_photo">Farm Photo:</label>
+                <input type="file" id="farm_photo" name="farm_photo" accept="image/*" onchange="validatePhoto()">
+                <span id="photoError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+        </fieldset>
+
+        <!-- Preferences & Services -->
+        <fieldset>
+            <legend>Preferences & Services</legend>
+            <p>
+                Preferred Language:
+                <input type="radio" id="english" name="language" value="English" onclick="validateLanguage()">
+                <label for="english">English</label>
+
+                <input type="radio" id="hindi" name="language" value="Hindi" onclick="validateLanguage()">
+                <label for="hindi">Hindi</label>
+
+                <input type="radio" id="other" name="language" value="Other" onclick="validateLanguage()">
+                <label for="other">Other</label>
+                <span id="languageError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+
+            <p>
+                Advisory Services Required: <br>
+                <input type="checkbox" id="weather" name="services" value="Weather Updates" onclick="validateServices()">
+                <label for="weather">Weather Updates</label>
+
+                <input type="checkbox" id="fertilizer" name="services" value="Fertilizer Recommendation" onclick="validateServices()">
+                <label for="fertilizer">Fertilizer Recommendation</label>
+
+                <input type="checkbox" id="pest" name="services" value="Pest Control" onclick="validateServices()">
+                <label for="pest">Pest Control</label>
+
+                <input type="checkbox" id="market" name="services" value="Market Prices" onclick="validateServices()">
+                <label for="market">Market Prices</label>
+                <span id="servicesError" style="color: red; font-size: 0.85em; font-weight: bold; margin-left: 8px;"></span>
+            </p>
+        </fieldset>
+
+        <p>
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </p>
+
+    </form>
+
+    <footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System</small></p>
+    </footer>
+
+    <!-- INTERNAL JAVASCRIPT VALIDATION -->
+    <script>
+        // Task 2: Farmer Name Validation
+        function validateName() {
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('nameError');
+            const nameValue = nameInput.value.trim();
+            const alphaSpaceRegex = /^[A-Za-z\s]+$/;
+
+            if (nameValue === '') {
+                nameError.textContent = 'Farmer Name is required.';
+                return false;
+            } else if (!alphaSpaceRegex.test(nameValue)) {
+                nameError.textContent = 'Farmer Name must contain alphabetic characters and spaces only.';
+                return false;
+            } else {
+                nameError.textContent = '';
+                return true;
+            }
+        }
+
+        // Task 3: Mobile Number Validation
+        function validateMobile() {
+            const mobileInput = document.getElementById('mobile');
+            const mobileError = document.getElementById('mobileError');
+            const mobileValue = mobileInput.value.trim();
+            const mobileRegex = /^[6-9]\d{9}$/;
+
+            if (mobileValue === '') {
+                mobileError.textContent = 'Mobile number is required.';
+                return false;
+            } else if (!mobileRegex.test(mobileValue)) {
+                mobileError.textContent = 'Enter a valid 10-digit mobile number (starts with 6-9).';
+                return false;
+            } else {
+                mobileError.textContent = '';
+                return true;
+            }
+        }
+
+        // Task 3: Email Validation
+        function validateEmail() {
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('emailError');
+            const emailValue = emailInput.value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+            if (emailValue === '') {
+                emailError.textContent = 'Email address is required.';
+                return false;
+            } else if (!emailRegex.test(emailValue)) {
+                emailError.textContent = 'Enter a valid email address (e.g. user@domain.com).';
+                return false;
+            } else {
+                emailError.textContent = '';
+                return true;
+            }
+        }
+
+        // Task 2: Village Validation
+        function validateVillage() {
+            const villageInput = document.getElementById('village');
+            const villageError = document.getElementById('villageError');
+            if (villageInput.value.trim() === '') {
+                villageError.textContent = 'Village name is required.';
+                return false;
+            }
+            villageError.textContent = '';
+            return true;
+        }
+
+        // Task 2: Plot ID Validation
+        function validatePlot() {
+            const plotInput = document.getElementById('plot');
+            const plotError = document.getElementById('plotError');
+            if (plotInput.value.trim() === '') {
+                plotError.textContent = 'Plot ID is required.';
+                return false;
+            }
+            plotError.textContent = '';
+            return true;
+        }
+
+        // Additional Field Validations
+        function validateCrop() {
+            const cropInput = document.getElementById('crop');
+            const cropError = document.getElementById('cropError');
+            if (cropInput.value.trim() === '') {
+                cropError.textContent = 'Crop variety is required.';
+                return false;
+            }
+            cropError.textContent = '';
+            return true;
+        }
+
+        function validateCropStage() {
+            const cropStageInput = document.getElementById('crop_stage');
+            const cropStageError = document.getElementById('cropStageError');
+            if (cropStageInput.value === '') {
+                cropStageError.textContent = 'Please select a crop stage.';
+                return false;
+            }
+            cropStageError.textContent = '';
+            return true;
+        }
+
+        function validateArea() {
+            const areaInput = document.getElementById('area');
+            const areaError = document.getElementById('areaError');
+            const areaValue = parseFloat(areaInput.value.trim());
+
+            if (areaInput.value.trim() === '' || isNaN(areaValue) || areaValue <= 0) {
+                areaError.textContent = 'Enter a valid farm area greater than 0.';
+                return false;
+            }
+            areaError.textContent = '';
+            return true;
+        }
+
+        function validateSoilType() {
+            const soilTypeInput = document.getElementById('soil_type');
+            const soilTypeError = document.getElementById('soilTypeError');
+            if (soilTypeInput.value === '') {
+                soilTypeError.textContent = 'Please select a soil type.';
+                return false;
+            }
+            soilTypeError.textContent = '';
+            return true;
+        }
+
+        function validateMoisture() {
+            const moistureInput = document.getElementById('soil_moisture');
+            const moistureError = document.getElementById('moistureError');
+            const moistureValue = parseFloat(moistureInput.value.trim());
+
+            if (moistureInput.value.trim() === '' || isNaN(moistureValue) || moistureValue < 0 || moistureValue > 100) {
+                moistureError.textContent = 'Moisture must be a percentage between 0 and 100.';
+                return false;
+            }
+            moistureError.textContent = '';
+            return true;
+        }
+
+        function validateIrrigation() {
+            const irrigationInput = document.getElementById('irrigation');
+            const irrigationError = document.getElementById('irrigationError');
+            if (irrigationInput.value === '') {
+                irrigationError.textContent = 'Please select an irrigation method.';
+                return false;
+            }
+            irrigationError.textContent = '';
+            return true;
+        }
+
+        function validateRegDate() {
+            const dateInput = document.getElementById('reg_date');
+            const dateError = document.getElementById('dateError');
+            if (dateInput.value === '') {
+                dateError.textContent = 'Registration date is required.';
+                return false;
+            }
+            dateError.textContent = '';
+            return true;
+        }
+
+        function validatePhoto() {
+            const photoInput = document.getElementById('farm_photo');
+            const photoError = document.getElementById('photoError');
+            if (photoInput.files.length === 0) {
+                photoError.textContent = 'Please upload a farm photo.';
+                return false;
+            }
+            photoError.textContent = '';
+            return true;
+        }
+
+        function validateLanguage() {
+            const languages = document.querySelectorAll('input[name="language"]:checked');
+            const languageError = document.getElementById('languageError');
+            if (languages.length === 0) {
+                languageError.textContent = 'Please select a language.';
+                return false;
+            }
+            languageError.textContent = '';
+            return true;
+        }
+
+        function validateServices() {
+            const services = document.querySelectorAll('input[name="services"]:checked');
+            const servicesError = document.getElementById('servicesError');
+            if (services.length === 0) {
+                servicesError.textContent = 'Select at least one advisory service.';
+                return false;
+            }
+            servicesError.textContent = '';
+            return true;
+        }
+
+        // Master Form Validation Triggered on Submit
+        function validateForm() {
+            const isNameValid = validateName();
+            const isMobileValid = validateMobile();
+            const isEmailValid = validateEmail();
+            const isVillageValid = validateVillage();
+            const isPlotValid = validatePlot();
+            const isCropValid = validateCrop();
+            const isCropStageValid = validateCropStage();
+            const isAreaValid = validateArea();
+            const isSoilTypeValid = validateSoilType();
+            const isMoistureValid = validateMoisture();
+            const isIrrigationValid = validateIrrigation();
+            const isDateValid = validateRegDate();
+            const isPhotoValid = validatePhoto();
+            const isLanguageValid = validateLanguage();
+            const isServicesValid = validateServices();
+
+            return isNameValid && isMobileValid && isEmailValid && isVillageValid && 
+                   isPlotValid && isCropValid && isCropStageValid && isAreaValid && 
+                   isSoilTypeValid && isMoistureValid && isIrrigationValid && 
+                   isDateValid && isPhotoValid && isLanguageValid && isServicesValid;
+        }
+
+        // Clear all Error Spans on Reset
+        function clearErrors() {
+            const errorSpans = document.querySelectorAll('span[id$="Error"]');
+            errorSpans.forEach(span => span.textContent = '');
+        }
+    </script>
+</body>
+</html>

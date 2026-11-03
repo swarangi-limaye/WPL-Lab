@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soil Moisture Sensor Data Analysis - Task 4</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body style="margin:20px;">
+
+    <!-- Header (Matching previous theme) -->
+    <div style="background-color: #95d95d; padding:25px; text-align:center;">
+        <h1>AI-Based Smart Irrigation Advisory System</h1>
+        <h2>Task 4: Hourly Soil Moisture Sensor Analysis</h2>
+    </div>
+
+    <!-- Sensor Input Controls -->
+    <form id="sensorForm" onsubmit="return false;" style="margin-top:20px;">
+        <fieldset>
+            <legend>Sensor Data Inputs</legend>
+            <p>
+                <label for="readings_input">Hourly Sensor Readings (%, separated by commas):</label><br>
+                <input type="text" id="readings_input" style="width: 90%; padding: 8px; margin-top: 5px;" 
+                       value="28, 35, 42, 50, 55, 48, 40, 32, 25, 22, 30, 38, 45, 52, 60, 58, 45, 38, 29, 26, 24, 31, 36, 40" required>
+            </p>
+            <p>
+                <label for="critical_value">Critical Moisture Threshold (%):</label><br>
+                <input type="number" id="critical_value" value="30" min="0" max="100" step="0.1" style="padding: 6px;" required>
+            </p>
+            <p>
+                <button type="button" id="analyze_btn" style="padding: 8px 16px; background-color: #95d95d; border: 1px solid #5a9e29; font-weight: bold; cursor: pointer;">Analyze Sensor Data</button>
+                <button type="reset" id="reset_btn" style="padding: 8px 16px; cursor: pointer;">Reset Default Data</button>
+            </p>
+        </fieldset>
+    </form>
+
+    <!-- Output Analysis Card -->
+    <div id="results_card" style="margin-top: 20px; padding: 20px; border: 2px solid #95d95d; background-color: #f9fff0;">
+        <h3 style="color: #2d5a00; margin-top: 0;">Sensor Data Analysis Results</h3>
+        
+        <div id="output_content" style="font-family: Arial, sans-serif; line-height: 1.8;">
+            <!-- Results will be dynamically rendered here -->
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const readingsInput = document.getElementById('readings_input');
+            const criticalInput = document.getElementById('critical_value');
+            const analyzeBtn = document.getElementById('analyze_btn');
+            const resetBtn = document.getElementById('reset_btn');
+            const outputContent = document.getElementById('output_content');
+
+            // Primary Function to Perform Task 4 Operations
+            function analyzeSensorData() {
+                // Parse comma-separated text into an array of numbers
+                const rawValues = readingsInput.value.split(',');
+                const sensorReadings = rawValues.map(val => parseFloat(val.trim())).filter(val => !isNaN(val));
+                const criticalValue = parseFloat(criticalInput.value);
+
+                if (sensorReadings.length === 0) {
+                    outputContent.innerHTML = "<p style='color:red;'>Please enter valid numerical sensor readings.</p>";
+                    return;
+                }
+
+                if (isNaN(criticalValue)) {
+                    outputContent.innerHTML = "<p style='color:red;'>Please enter a valid critical threshold value.</p>";
+                    return;
+                }
+
+                // =========================================================
+                // TASK 4 OPERATIONS ON THE ARRAY
+                // =========================================================
+
+                // 1. Display all sensor readings
+                const allReadingsDisplay = sensorReadings.map(val => val + "%").join(", ");
+
+                // 2. Find the minimum moisture level
+                const minMoisture = Math.min(...sensorReadings);
+
+                // 3. Find the maximum moisture level
+                const maxMoisture = Math.max(...sensorReadings);
+
+                // 4. Calculate average soil moisture
+                const totalSum = sensorReadings.reduce((sum, current) => sum + current, 0);
+                const averageMoisture = (totalSum / sensorReadings.length).toFixed(2);
+
+                // 5. Count the number of readings below the critical value
+                const criticalReadings = sensorReadings.filter(val => val < criticalValue);
+                const belowCriticalCount = criticalReadings.length;
+
+                // =========================================================
+                // DISPLAY RESULTS ON THE PAGE
+                // =========================================================
+                outputContent.innerHTML = `
+                    <p><strong>1. All Hourly Sensor Readings (${sensorReadings.length} total):</strong><br>
+                    <span style="background-color: #ffffff; padding: 6px; border: 1px solid #ccc; display: block; margin-top: 4px; word-wrap: break-word;">
+                        ${allReadingsDisplay}
+                    </span></p>
+
+                    <p><strong>2. Minimum Moisture Level:</strong> 
+                        <span style="color: red; font-weight: bold;">${minMoisture}%</span>
+                    </p>
+
+                    <p><strong>3. Maximum Moisture Level:</strong> 
+                        <span style="color: green; font-weight: bold;">${maxMoisture}%</span>
+                    </p>
+
+                    <p><strong>4. Average Soil Moisture:</strong> 
+                        <span style="color: #0056b3; font-weight: bold;">${averageMoisture}%</span>
+                    </p>
+
+                    <p><strong>5. Readings Below Critical Threshold (${criticalValue}%):</strong> 
+                        <span style="color: ${belowCriticalCount > 0 ? 'red' : 'green'}; font-weight: bold;">
+                            ${belowCriticalCount} reading(s) 
+                            ${belowCriticalCount > 0 ? `(${criticalReadings.map(v => v + '%').join(', ')})` : ''}
+                        </span>
+                    </p>
+                `;
+
+                // Log the results array and operations in the console
+                console.log("Array Operations Summary:", {
+                    allReadings: sensorReadings,
+                    minimum: minMoisture,
+                    maximum: maxMoisture,
+                    average: parseFloat(averageMoisture),
+                    criticalThreshold: criticalValue,
+                    countBelowCritical: belowCriticalCount
+                });
+            }
+
+            // Execute analysis immediately on load
+            analyzeSensorData();
+
+            // Event Listeners
+            analyzeBtn.addEventListener('click', analyzeSensorData);
+            
+            resetBtn.addEventListener('click', () => {
+                setTimeout(analyzeSensorData, 50);
+            });
+        });
+    </script>
+
+    <!-- Footer (Matching previous theme) -->
+    <footer>
+        <p style="text-align: center"><small>&copy; 2026 AI-Based Smart Irrigation Advisory System</small></p>
+    </footer>
+</body>
+</html>
