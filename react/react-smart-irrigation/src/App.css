@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f0;
+}
+
+.app-container {
+    text-align: center;
+}
+
+.header {
+    background-color: #95d95d;
+    padding: 20px;
+    border-bottom: 3px solid #5a9e29;
+}
+
+.header h1 {
+    margin: 0;
+    color: #1b3b00;
+}
+
+.header h2 {
+    margin: 5px 0 0 0;
+    font-weight: normal;
+    color: #2d5a00;
+    font-size: 16px;
+}
+
+.navbar {
+    background-color: #e2f5d3;
+    padding: 12px;
+    border-bottom: 2px solid #95d95d;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #1b3b00;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 5px 15px;
+}
+
+.nav-link:hover {
+    color: #5a9e29;
+}
+
+.divider {
+    color: #5a9e29;
+    font-weight: bold;
+}
+
+.page-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border: 2px solid #5a9e29;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.page-container h1 {
+    color: #2d5a00;
+    border-bottom: 2px solid #95d95d;
+    padding-bottom: 8px;
+    margin-top: 0;
+}
+
+.info-box {
+    background-color: #f9fff0;
+    border: 1px solid #95d95d;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 15px;
+}
+
+.card-grid {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.farm-card {
+    border: 1px solid #5a9e29;
+    background-color: #f9fff0;
+    border-radius: 6px;
+    padding: 15px;
+    width: 230px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.farm-card h3 {
+    margin-top: 0;
+    color: #1b3b00;
+    border-bottom: 1px dashed #95d95d;
+    padding-bottom: 5px;
+}
+
+footer {
+    margin-top: 40px;
+    padding: 15px;
+    font-size: 14px;
+    color: #555;
+}
