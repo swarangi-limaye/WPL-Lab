@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Irrigation Recommendation Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav.top-nav {
+            background-color: #006400;
+            border-top: 2px solid #004B23;
+            border-bottom: 3px solid #38B000;
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+        }
+
+        .nav-menu li a {
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-menu li a:hover {
+            color: #004B23;
+            background-color: #70E000;
+        }
+
+        .nav-menu li a.active {
+            background-color: #38B000;
+            color: #FFFFFF;
+        }
+
+        .topbar {
+            height: 20px;
+            width: 100%;
+            background-color: #8FBC8F;
+        }
+
+        /* --- SIDEBAR & CONTENT LAYOUT --- */
+        .page-container {
+            display: flex;                /* Flex container */
+            flex-direction: row;
+            gap: 20px;                    /* Spacing between elements */
+            max-width: 1250px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar at Left */
+        .sidebar {
+            width: 22%;                   /* Explicit width */
+            background-color: #2D5A27;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            border-bottom: 2px solid #70E000;
+            padding-bottom: 8px;
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .sidebar p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Content Area at Right */
+        .main-content {
+            width: 78%;                   /* Explicit width */
+            box-sizing: border-box;
+        }
+
+        /* TABLE STYLING */
+        table.recommendation-table {
+            border-collapse: collapse;    /* Collapse borders */
+            width: 100%;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            border: 2px solid #1E3F1B;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        table.recommendation-table th, 
+        table.recommendation-table td {
+            text-align: center;           /* Center align text */
+            padding: 10px 8px;
+            border: 1px solid #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Header Background Color */
+        table.recommendation-table thead tr {
+            background-color: #2D5A27;
+            color: #ffffff;
+        }
+
+        /* Zebra-Striping Rows */
+        table.recommendation-table tbody tr:nth-child(even) {
+            background-color: #f2f9f2;    /* Zebra-striping */
+        }
+
+        table.recommendation-table tbody tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        table.recommendation-table tbody tr:hover {
+            background-color: #e2f0e2;
+        }
+
+        table.recommendation-table tfoot tr {
+            background-color: #2D5A27;
+            color: #ffffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+
+    <div class="topbar"></div>
+
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-system.html">About System</a></li>
+            <li><a href="irrigation-advisory.html">Advisory</a></li>
+            <li><a href="farm-information.html">Farm & Sensors</a></li>
+            <li><a href="recommendation.html" class="active">Recommendations</a></li>
+            <li><a href="farmer-registration.html">Registration</a></li>
+            <li><a href="navigation.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <!-- FLEX CONTAINER WITH LEFT SIDEBAR AND RIGHT CONTENT -->
+    <div class="page-container">
+        <!-- Sidebar at Left -->
+        <aside class="sidebar">
+            <h3>Filter Summary</h3>
+            <p><b>Active Plots:</b> 5 Plots</p>
+            <p><b>Urgent Action:</b> 2 Plots</p>
+            <p><b>Delay Scheduled:</b> 1 Plot</p>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <p><small>Soil data updated automatically via IoT Sensors every 15 minutes.</small></p>
+        </aside>
+
+        <!-- Content Area at Right -->
+        <main class="main-content">
+            <p style="font-family: Impact, sans-serif; font-size: 260%; text-align: center; color: #006A4E; margin: 10px 0;">
+                <u> IRRIGATION RECOMMENDATION PAGE </u>
+            </p>
+
+            <div>
+                <p style="font-family: Verdana, sans-serif; font-size: 95%; text-align: center; color: black; margin-bottom: 20px;">
+                    Here some of the recommendations for irrigation have been displayed in the table 
+                    according to the plot size, soil moisture, and many other factors:
+                </p>
+            </div>    
+
+            <!-- Styled Table -->
+            <table class="recommendation-table">
+                <caption>
+                    <h3 style="color: #2D5A27; margin-bottom: 10px;">Irrigation Recommendations</h3>
+                </caption>
+                <thead>
+                    <tr>
+                        <th rowspan="2">Plot ID</th>
+                        <th rowspan="2">Farmer Name</th>
+                        <th rowspan="2">Crop Stage</th>
+                        <th rowspan="2">Soil Moisture (%)</th>
+                        <th colspan="2">Irrigation Schedule</th>
+                        <th rowspan="2">Weather Forecast</th>
+                        <th rowspan="2">Recommendation Status</th>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>P001</td>
+                        <td>Ramesh Patil</td>
+                        <td>Germination</td>
+                        <td>24%</td>
+                        <td>26-Jul-2026</td>
+                        <td>60 min</td>
+                        <td>Sunny</td>
+                        <td>Irrigation Required</td>
+                    </tr>
+                    <tr>
+                        <td>P002</td>
+                        <td>Suresh Shinde</td>
+                        <td>Vegetative</td>
+                        <td>42%</td>
+                        <td>28-Jul-2026</td>
+                        <td>40 min</td>
+                        <td>Partly Cloudy</td>
+                        <td>Scheduled</td>
+                    </tr>
+                    <tr>
+                        <td>P003</td>
+                        <td>Shubha Kulkarni</td>
+                        <td>Tillering</td>
+                        <td>56%</td>
+                        <td>30-Jul-2026</td>
+                        <td>25 min</td>
+                        <td>Light Rain</td>
+                        <td>Delay Irrigation</td>
+                    </tr>
+                    <tr>
+                        <td>P004</td>
+                        <td>Mahesh Jadhav</td>
+                        <td>Flowering</td>
+                        <td>31%</td>
+                        <td>26-Jul-2026</td>
+                        <td>50 min</td>
+                        <td>Sunny</td>
+                        <td>Irrigation Required</td>
+                    </tr>
+                    <tr>
+                        <td>P0015</td>
+                        <td>Priya Deshmukh</td>
+                        <td>Maturity</td>
+                        <td>68%</td>
+                        <td>01-Aug-2026</td>
+                        <td>0 min</td>
+                        <td>Heavy Rain</td>
+                        <td>No Action Required</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Total Plots Monitored: 5</td>
+                        <td colspan="5">Status Checked Automatically</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Irrigation Advisory</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f4;
+        }
+
+        /* --- HEADER & TOP NAVIGATION --- */
+        header {
+            background-color: #306D29;
+            text-align: center;
+            padding: 5px;
+            border: #306D29 solid 10px;
+        }
+        header h1 {
+            color: lightgray;
+            padding: 15px;
+            margin: 0;
+            font-size: 2.2rem;
+            font-family: Impact, sans-serif;
+            letter-spacing: 1px;
+        }
+        nav.top-nav {
+            background-color: #006400;
+            border-top: 2px solid #004B23;
+            border-bottom: 3px solid #38B000;
+        }
+        .nav-menu {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-menu li {
+            display: inline-block;
+        }
+        .nav-menu li a {
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .nav-menu li a:hover {
+            color: #004B23;
+            background-color: #70E000;
+        }
+        .nav-menu li a.active {
+            background-color: #38B000;
+            color: #FFFFFF;
+        }
+
+        /* --- SIDEBAR & MAIN CONTENT LAYOUT --- */
+        .page-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+        .sidebar {
+            width: 30%;
+            background-color: #2D5A27;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            align-self: flex-start;
+        }
+        .sidebar h3 {
+            border-bottom: 2px solid #70E000;
+            padding-bottom: 8px;
+            margin-top: 0;
+            color: #ffffff;
+        }
+        .sidebar p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #FFFFFF;
+        }
+
+        .main-content {
+            width: 70%;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* --- CARDS & FIELDSETS --- */
+        .card {
+            border: 2px solid #2D5A27;
+            border-radius: 8px;
+            padding: 20px 25px;
+            background-color: #f9fbf9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #2D5A27;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .card h2 {
+            font-size: 1.3rem;
+            color: #1E3F1B;
+            margin-top: 0;
+            margin-bottom: 12px;
+            border-bottom: 2px solid #38B000;
+            padding-bottom: 6px;
+        }
+        p, li {
+            color: #2b2b2b;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        ul, ol {
+            padding-left: 20px;
+            margin-top: 8px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        abbr {
+            text-decoration: underline dotted #38B000;
+            font-weight: bold;
+            color: #2D5A27;
+            cursor: help;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AI-BASED SMART IRRIGATION ADVISORY SYSTEM</h1>
+    </header>
+
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-system.html">About System</a></li>
+            <li><a href="irrigation-advisory.html" class="active">Advisory</a></li>
+            <li><a href="farm-information.html">Farm &amp; Sensors</a></li>
+            <li><a href="recommendation.html">Recommendations</a></li>
+            <li><a href="farmer-registration.html">Registration</a></li>
+            <li><a href="navigation.html">Directory</a></li>
+        </ul>
+    </nav>
+
+    <div class="page-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h3>Advisory Overview</h3>
+            <p>Smart scheduling reduces crop stress and optimizes yields while conserving water resources.</p>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <p><b>Quick Tip:</b> Always maintain Management Allowed Depletion (MAD) below 50% for optimal root health.</p>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            
+            <!-- Card 1: Recommendations -->
+            <div class="card">
+                <h2>IMPORTANT IRRIGATION RECOMMENDATIONS</h2>
+                <div class="card-header">Evapotranspiration (ET) &amp; Moisture-Based Scheduling</div>
+                
+                <ul>
+                    <li>
+                        <strong>Calculate Net Water Requirement:</strong> Match irrigation volume to crop water loss (ET<sub>c</sub>). 
+                        <em>(Apply only the difference between plant water use and effective rainfall.)</em>
+                    </li>
+                    <li>
+                        <strong>Maintain the 50% Depletion Limit:</strong> Do not allow Management Allowed Depletion (MAD) to exceed 50% of available water capacity in the root zone before applying the next irrigation cycle.
+                    </li>
+                    <li>
+                        <strong>Monitor Soil Tension:</strong>
+                        <ol style="margin-top: 6px;">
+                            <li><strong>Coarse/Sandy Soil:</strong> Irrigate when soil water tension reaches 20–30 kPa.</li>
+                            <li><strong>Medium/Loam Soil:</strong> Irrigate when soil water tension reaches 40–50 kPa.</li>
+                            <li><strong>Heavy/Clay Soil:</strong> Irrigate when soil water tension reaches 50–70 kPa.</li>
+                        </ol>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Water Conservation -->
+            <div class="card">
+                <h2>WATER CONSERVATION PRACTICES</h2>
+                <p>
+                    Smart irrigation methods save water by delivering it precisely when and where crops need it most. 
+                    Drip irrigation systems apply water directly to plant roots drop by drop, which drastically reduces evaporation and wind drift. 
+                    Implementing high-efficiency Drip Irrigation (DI) systems allows an individual emitter to release just 2,000 cm<sup>3</sup> to 4,000 cm<sup>3</sup> of water per hour directly to the plant base.
+                </p>
+                <p>
+                    This targeted micro-application cuts farm water waste by 30% to 50% compared to traditional flood methods. 
+                    Farmers combine this with <em>data-driven irrigation scheduling and soil moisture sensors to ensure fields are watered only when actual soil deficits exist, preventing overwatering</em>.
+                </p>
+                <p>
+                    Soil and land management practices focus on trapping moisture directly within the earth. Applying organic mulch, such as straw or wood chips, shields the topsoil from solar radiation and slows down surface evaporation. Additionally, practicing <em>no-till farming</em> and planting cover crops builds organic matter, improves soil structure, and significantly increases the land's natural water-holding capacity.
+                </p>
+            </div>
+
+            <!-- Card 3: Terminologies -->
+            <div class="card">
+                <h2>SOME FARMING TERMINOLOGIES</h2>
+                <p style="font-size: 0.85rem; color: #555;"><em>HOVER ON WORDS TO SEE FULL FORMS</em></p>
+                <ul>
+                    <li><abbr title="GOOD AGRICULTURAL PRACTICES">GAP</abbr> — Good Agricultural Practices</li>
+                    <li><abbr title="High Yielding Varieties">HYV</abbr> — High Yielding Varieties</li>
+                    <li><abbr title="Integrated Nutrient Management">INM</abbr> — Integrated Nutrient Management</li>
+                </ul>
+            </div>
+
+        </main>
+    </div>
+
+    <blockquote style="color: white; text-align: center; background-color: #306D29; padding: 20px; margin: 30px 0 0 0;">
+        Smart irrigation helps farmers use water efficiently, improve crop quality, and support sustainable agriculture.
+        <br><br>
+        <b>— Agricultural Expert</b>
+    </blockquote>
+
+    <footer style="background-color: lightgray; text-align: center; padding: 15px;">
+        <p style="margin: 0; color: #306D29;"><b>&copy; 2026 AI-Based Smart Irrigation Advisory System. All rights reserved.</b></p>
+    </footer>
+
+    <script src="task1.js"></script>
+
+</body>
+</html>

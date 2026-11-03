@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Navigation Page</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav.top-nav {
+            background-color: #006400;
+            border-top: 2px solid #004B23;
+            border-bottom: 3px solid #38B000;
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+        }
+
+        .nav-menu li a {
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-menu li a:hover {
+            color: #004B23;
+            background-color: #70E000;
+        }
+
+        .nav-menu li a.active {
+            background-color: #38B000;
+            color: #FFFFFF;
+        }
+
+        /* --- SIDEBAR & CONTENT LAYOUT --- */
+        .page-container {
+            display: flex;                /* Flex layout */
+            flex-direction: row;
+            gap: 20px;                    /* Spacing */
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar set to Left */
+        .sidebar {
+            width: 25%;                   /* Width */
+            background-color: #2D5A27;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            border-bottom: 2px solid #70E000;
+            padding-bottom: 8px;
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 2;
+        }
+
+        .sidebar ul li a {
+            color: #D1E7DD;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            color: #70E000;
+        }
+
+        /* Content set to Right */
+        .main-content {
+            width: 75%;                   /* Width */
+            box-sizing: border-box;
+        }
+
+        .cards-container {
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .card {
+            display: inline-block;
+            vertical-align: top;
+            width: 260px;
+            margin: 10px;
+            padding: 20px;
+            border: 2px solid #1E3F1B;
+            border-radius: 8px;
+            background-color: #2D5A27;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            min-height: 320px;
+            color: #ffffff;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-shade-1 {
+            background-color: #2D5A27;
+            border: 2px solid #1E3F1B;
+        }
+
+        .card-shade-2 {
+            background-color: #234E2E;
+            border: 2px solid #16341E;
+        }
+
+        .card-shade-3 {
+            background-color: #1B4332;
+            border: 2px solid #0D281E;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 8px;
+            text-align: center;
+        }
+
+        .card ul {
+            padding-left: 0;
+            list-style-type: none;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .card a {
+            color: #70E000 !important;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card a:hover {
+            text-decoration: underline;
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <header style="background-color: #306D29; text-align: center; padding: 5px; border:#306D29 solid 10px;">
+            <h1 style="color: lightgray; padding: 20px; margin: 0;"> NAVIGATION LINKS </h1>
+        </header>
+    </div>
+
+    <nav class="top-nav">
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-system.html">About System</a></li>
+            <li><a href="irrigation-advisory.html">Advisory</a></li>
+            <li><a href="farm-information.html">Farm & Sensors</a></li>
+            <li><a href="recommendation.html">Recommendations</a></li>
+            <li><a href="farmer-registration.html">Registration</a></li>
+            <li><a href="navigation.html" class="active">Directory</a></li>
+        </ul>
+    </nav>
+   
+    <!-- FLEX CONTAINER WITH LEFT SIDEBAR AND RIGHT CONTENT -->
+    <div class="page-container">
+        <!-- Sidebar at Left -->
+        <aside class="sidebar">
+            <h3>Directory Menu</h3>
+            <ul>
+                <li><a href="#internal">Internal Pages</a></li>
+                <li><a href="#external">External Resources</a></li>
+                <li><a href="#helplines">Helplines & Support</a></li>
+            </ul>
+            <hr style="border-color: rgba(255,255,255,0.2);">
+            <p><b>Helpline Toll-Free:</b><br>1800-180-1551</p>
+        </aside>
+
+        <!-- Content Area at Right -->
+        <main class="main-content">
+            <div>
+                <nav>
+                    <h2 style="color: #306D29;"> NAVIGATION LINKS</h2>
+
+                    <ul>
+                        <li><a href="index.html">Home / Dashboard</a></li>
+                        <li><a href="irrigation-advisory.html">Irrigation advisory Page</a></li>
+                        <li><a href="about-system.html"> About System Page</a></li>
+                        <li><a href="farm-information.html"> Farm Information And Sensors Page</a></li>
+                        <li><a href="farm-map.html">Farm Location Page</a></li>
+                        <li><a href="recommendation.html">Irrigation Recommendation Page</a></li>
+                        <li><a href="farmer-registration.html">Farmer Registration Form</a></li>
+                        <li><a href="media.html">Media And Awareness Page</a></li>
+                    </ul>
+
+                    <h2 style="color: #306D29;">EXTERNAL RESOURCES</h2>    
+                    <ul>
+                        <li> <a href="https://kiaar.org"> Visit KIAAR Official Website </a></li>
+                        <li> <a href="https://agricoop.nic.in"> Department of Agriculture Website </a></li>   
+                    </ul>
+
+                    <h2 style="color: #306D29;">SUPPORT AND HELPLINES </h2>
+                    <ul>
+                        <li>
+                            Email Support:
+                            <a href="mailto:support.agri@smartirrigation.portal?subject=Irrigation%20Advisory%20Assistance">
+                                support.agri@smartirrigation.portal
+                            </a>
+                        </li>
+                        <li>
+                            Farmer Helpline (Toll-Free Number):
+                            <a href="tel:18001801551">
+                                1800-180-1551
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- PRODUCT CARDS SECTION -->
+            <div class="cards-container">
+                <div class="card card-shade-1" id="internal">
+                    <h2 style="color: #FFFFFF;">NAVIGATION LINKS</h2>
+                    <ul>
+                        <li><a href="index.html">Home / Dashboard</a></li>
+                        <li><a href="irrigation-advisory.html">Irrigation Advisory</a></li>
+                        <li><a href="about-system.html">About System Page</a></li>
+                        <li><a href="farm-information.html">Farm Info & Sensors</a></li>
+                        <li><a href="farm-map.html">Farm Location Page</a></li>
+                        <li><a href="recommendation.html">Recommendations</a></li>
+                        <li><a href="farmer-registration.html">Registration Form</a></li>
+                        <li><a href="media.html">Media & Awareness</a></li>
+                    </ul>
+                </div>
+
+                <div class="card card-shade-2" id="external">
+                    <h2 style="color: #FFFFFF;">EXTERNAL RESOURCES</h2>
+                    <ul>
+                        <li><a href="https://kiaar.org">Visit KIAAR Website</a></li>
+                        <li><a href="https://agricoop.nic.in">Dept of Agriculture</a></li>
+                    </ul>
+                </div>
+
+                <div class="card card-shade-3" id="helplines">
+                    <h2 style="color: #FFFFFF;">SUPPORT & HELPLINES</h2>
+                    <ul>
+                        <li>
+                            Email Support:<br>
+                            <a href="mailto:support.agri@smartirrigation.portal?subject=Irrigation%20Advisory%20Assistance">
+                                support.agri@smartirrigation.portal
+                            </a>
+                        </li>
+                        <br>
+                        <li>
+                            Farmer Helpline (Toll-Free):<br>
+                            <a href="tel:18001801551">
+                                1800-180-1551
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <blockquote style="color: white; text-align: center; background-color: #306D29; padding: 20px; margin: 0;">
+        Smart irrigation helps farmers use water efficiently, improve crop quality, and support sustainable agriculture.
+        <br><br>
+        <b>— Agricultural Expert</b>
+    </blockquote>
+
+    <!-- FOOTER AT BOTTOM -->
+    <footer style="background-color: lightgray; text-align: center; padding: 20px;">
+        <h5 style="color: #306D29; margin: 0;"> Irrigation Advisory Website. All rights reserved.</h5>
+    </footer>
+</body>
+</html>

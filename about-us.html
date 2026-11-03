@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>About the Smart Irrigation Advisory System page.</title>
+
+        <style>
+        /* Base Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #006400;
+            border-top: 2px solid #004B23;
+            border-bottom: 3px solid #38B000;
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li {
+            display: inline-block;
+        }
+
+        .nav-menu li a {
+            display: block;
+            color: #FFFFFF;
+            text-decoration: none;
+            padding: 14px 22px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .nav-menu li a:hover {
+            color: #004B23;
+            background-color: #70E000;
+        }
+
+        .nav-menu li a.active {
+            background-color: #38B000;
+            color: #FFFFFF;
+        }
+
+        a:link { color: #007200; }
+        a:visited { color: #004B23; }
+        a:hover { color: #70E000; }
+        a:active { color: #38B000; }
+
+        /* --- SIDEBAR & CONTENT LAYOUT --- */
+        .page-container {
+            display: flex;                /* Uses Flexbox layout */
+            flex-direction: row;
+            gap: 20px;                    /* Sets spacing between sidebar and content */
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        /* Sidebar set to Left */
+        .sidebar {
+            width: 25%;                   /* Explicit width */
+            background-color: #2D5A27;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .sidebar h3 {
+            border-bottom: 2px solid #70E000;
+            padding-bottom: 8px;
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+            padding-left: 0;
+            line-height: 2;
+        }
+
+        .sidebar ul li a {
+            color: #D1E7DD;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sidebar ul li a:hover {
+            color: #70E000;
+        }
+
+        /* Content set to Right */
+        .main-content {
+            width: 75%;                   /* Explicit width */
+            box-sizing: border-box;
+        }
+
+        /* Container for side-by-side vertical cards */
+        .cards-container {
+            display: block;
+            text-align: center;
+            margin: 10px auto;
+        }
+
+        /* Product/Book Card Styling integrated with inline-block display */
+        .card {
+            display: inline-block;             /* Set layout to inline-block */
+            vertical-align: top;
+            width: 260px;                      /* Set width */
+            margin: 10px;                      /* Set outer margin */
+            padding: 20px;                     /* Set inner padding */
+            border: 2px solid #1E3F1B;         /* Set border */
+            border-radius: 8px;
+            background-color: #2D5A27;         /* Set background color */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Set shadow */
+            text-align: center;                /* Center align content */
+            min-height: 380px;
+            color: #ffffff;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .card-shade-1 {
+            background-color: #2D5A27;
+            border: 2px solid #1E3F1B;
+        }
+
+        .card-shade-2 {
+            background-color: #234E2E;
+            border: 2px solid #16341E;
+        }
+
+        .card-shade-3 {
+            background-color: #1B4332;
+            border: 2px solid #0D281E;
+        }
+
+        .card-header {
+            text-align: center;
+            user-select: none;
+        }
+
+        .card-header h2 {
+            margin: 10px 0;
+            color: #FFFFFF !important;
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-preview {
+            font-size: 0.9rem;
+            color: #D1E7DD;
+            text-align: center;
+            margin: 15px 0;
+            line-height: 1.4;
+        }
+
+        .toggle-icon-container {
+            width: 100%;
+            text-align: center;
+            padding-top: 10px;
+            margin-top: 15px;
+        }
+
+        .toggle-icon {
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #70E000;
+            transition: transform 0.3s ease;
+        }
+
+        .card-content {
+            display: none;
+            margin-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 15px;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+
+        .card.active {
+            min-height: auto;
+        }
+
+        .card.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .card.active .card-content {
+            display: block;
+        }
+
+        /* --- UPDATED SOPHISTICATED OFFER BOX STYLING --- */
+        .offer-box {
+            background: linear-gradient(135deg, #f7f3e8 0%, #e8f3e8 100%); /* Elegant warm-earth gradient */
+            color: #0F380A;
+            border: 2px solid #D4AF37;                         /* Premium metallic gold border */
+            border-radius: 12px;
+            padding: 22px;
+            margin: 20px auto 30px auto;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            animation: subtleGlow 2.5s infinite alternate;     /* Refined keyframes glow */
+            transition: transform 0.3s ease;
+        }
+
+        .offer-box:hover {
+            transform: translateY(-3px);                       /* Elegant hover shift */
+            cursor: pointer;
+        }
+
+        .offer-box h2 {
+            margin: 0 0 8px 0;
+            font-size: 1.7rem;
+            color: #1E4620;
+            text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3); /* Soft metallic text-shadow */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .offer-box p {
+            margin: 5px 0 0 0;
+            font-size: 1.1rem;
+            color: #2D5A27;
+        }
+
+        /* Soft Keyframes Glow Animation Definition */
+        @keyframes subtleGlow {
+            0% {
+                box-shadow: 0 4px 12px rgba(45, 90, 39, 0.15), 0 0 10px rgba(212, 175, 55, 0.2);
+                border-color: #D4AF37;
+            }
+            50% {
+                box-shadow: 0 6px 18px rgba(56, 176, 0, 0.25), 0 0 15px rgba(56, 176, 0, 0.3);
+                border-color: #38B000;
+            }
+            100% {
+                box-shadow: 0 4px 12px rgba(45, 90, 39, 0.15), 0 0 12px rgba(212, 175, 55, 0.3);
+                border-color: #C5A028;
+            }
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div>
+            <header style="background-color: #306D29; text-align: center; padding: 5px; border:#306D29 solid 10px ;">
+                <h1 style="color: lightgray; padding: 20px; margin: 0;"> ABOUT THE SYSTEM </h1>
+            </header>
+        </div>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-system.html" class="active">About System</a></li>
+                <li><a href="irrigation-advisory.html">Advisory</a></li>
+                <li><a href="farm-information.html">Farm & Sensors</a></li>
+                <li><a href="recommendation.html">Recommendations</a></li>
+                <li><a href="farmer-registration.html">Registration</a></li>
+                <li><a href="navigation.html">Directory</a></li>
+            </ul>
+        </nav>
+
+        <!-- FLEX CONTAINER WITH LEFT SIDEBAR AND RIGHT CONTENT -->
+        <div class="page-container">
+            <!-- Sidebar at Left -->
+            <aside class="sidebar">
+                <h3>Quick Navigation</h3>
+                <ul>
+                    <li><a href="#special-offer">Special Scheme</a></li>
+                    <li><a href="#objectives">System Objectives</a></li>
+                    <li><a href="#features">Core Features</a></li>
+                    <li><a href="#benefits">Key Benefits</a></li>
+                </ul>
+                <hr style="border-color: rgba(255,255,255,0.2);">
+                <p><b>System Version:</b> 2.4.0</p>
+                <p><b>Status:</b> Active Sensors</p>
+            </aside>
+
+            <!-- Main Content Area at Right -->
+            <main class="main-content">
+
+                <!-- OFFER BOX IMPLEMENTATION -->
+                <div class="offer-box" id="special-offer">
+                    <h2>🌾 SPECIAL FARMER SUBSIDY OFFER! 🌾</h2>
+                    <p>Register today and get <b>100% Free IoT Soil Sensor Installation</b> along with <b>1-Year Premium Advisory Services</b>!</p>
+                </div>
+
+                <div class="cards-container">
+                    <!-- Card 1: Objectives -->
+                    <div class="card card-shade-1" id="objectives" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <h2 style="color: #004B23;"><u>OBJECTIVES</u></h2>
+                            <div class="card-preview">
+                                AI-enabled precision advisory and sensor monitoring for sugarcane farming.
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <p style="text-align: justify;">
+                                <ul type="disc">
+                                    <li>Develop an AI-enabled irrigation advisory system for sugarcane cultivation that integrates field observations, weather information, and crop-specific requirements to support informed decision-making.</li>
+                                    <li>Monitor soil moisture, environmental conditions, and crop status using sensor networks and geospatial technologies.</li>
+                                    <li>Generate real-time, forecast-based, and plot-specific irrigation and fertigation recommendations.</li>
+                                    <li>Develop farmer-friendly web and mobile platforms for advisory dissemination.</li>
+                                    <li>Enhance water use efficiency and support sustainable farming practices.</li>
+                                </ul>
+                            </p>
+                        </div>
+
+                        <div class="toggle-icon-container">
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: System Features -->
+                    <div class="card card-shade-2" id="features" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <h2 style="color:#306D29"><u>SYSTEM FEATURES</u></h2>
+                            <div class="card-preview">
+                                IoT sensors, AI advisory engine, and multilingual farmer dashboard.
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <p style="text-align: justify;">
+                                <ul type="disc">
+                                    <li><b>IoT System</b> for data acquisition</li>
+                                    <li><b>AI-enabled irrigation</b> advisory platform</li>
+                                    <li>Farmer dashboard</li>
+                                    <li><b>Multi-source integrated</b> agricultural data repository</li>
+                                    <li><b>Real-time</b> irrigation recommendation system</li>
+                                    <li>Forecasting and alert mechanisms</li>
+                                    <li><b>LLM-based</b> multilingual advisory module</li>
+                                </ul>
+                            </p>
+                        </div>
+
+                        <div class="toggle-icon-container">
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Benefits -->
+                    <div class="card card-shade-3" id="benefits" onclick="toggleCard(this)">
+                        <div class="card-header">
+                            <h2 style="color:#306D29"><u>BENEFITS</u></h2>
+                            <div class="card-preview">
+                                Optimized irrigation timing, yield loss prevention, and pump scheduling.
+                            </div>
+                        </div>
+
+                        <div class="card-content">
+                            <p style="text-align: justify;">
+                                <ul type="disc">
+                                    <li>Next Irrigation Date Prediction</li>
+                                    <li>Irrigation Duration Prediction</li>
+                                    <li>Water Stress Probability Model</li>
+                                    <li>Rainfall-Adjusted Irrigation Recommendation</li>
+                                    <li>Yield Loss Prediction Due to Delayed Irrigation</li>
+                                    <li>Pump Scheduling Optimization</li>
+                                    <li>Disease and Water Stress Forecasting</li>
+                                    <li>Yield Prediction Model</li>
+                                    <li>Farmer-Friendly Advisory</li>
+                                </ul>
+                            </p>
+                        </div>
+
+                        <div class="toggle-icon-container">
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <blockquote style="color: white; text-align: center; background-color: #306D29; padding: 20px; margin: 0;">
+            Smart irrigation helps farmers use water efficiently, improve crop quality, and support sustainable agriculture.
+            <br><br>
+            <b>— Agricultural Expert</b>
+        </blockquote>
+
+        <!-- FOOTER AT BOTTOM -->
+        <footer style="background-color: lightgray; text-align: center; padding: 10px;">
+            <h5 style="margin: 0; color: #306D29;"> Irrigation Advisory Website. All rights reserved.</h5>
+        </footer>
+
+        <script>
+            function toggleCard(cardElement) {
+                cardElement.classList.toggle('active');
+            }
+        </script>
+
+    </body>
+</html>
