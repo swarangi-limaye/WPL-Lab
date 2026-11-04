@@ -1,5 +1,7 @@
+
 import React, { useState } from "react";
 import "../App.css";
+import { Link } from "react-router-dom";
 
 function FarmerRegistration() {
     const today = new Date().toISOString().split("T")[0];
@@ -50,8 +52,7 @@ function FarmerRegistration() {
 
         if (!formData.farmerName.trim()) {
             newErrors.farmerName = "Farmer name is required.";
-        }
-        else if (!/^[A-Za-z ]+$/.test(formData.farmerName.trim())) {
+        } else if (!/^[A-Za-z ]+$/.test(formData.farmerName.trim())) {
             newErrors.farmerName =
                 "Name should contain only letters and spaces.";
         }
@@ -63,8 +64,9 @@ function FarmerRegistration() {
 
         if (!formData.email.trim()) {
             newErrors.email = "Email is required.";
-        }
-        else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+        } else if (
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+        ) {
             newErrors.email = "Enter a valid email address.";
         }
 
@@ -73,7 +75,8 @@ function FarmerRegistration() {
         }
 
         if (!/^AGR-[0-9]{4}$/.test(formData.plotId)) {
-            newErrors.plotId = "Plot ID must be in the format AGR-1234.";
+            newErrors.plotId =
+                "Plot ID must be in the format AGR-1234.";
         }
 
         if (!formData.cropStage) {
@@ -100,8 +103,7 @@ function FarmerRegistration() {
         if (!formData.registrationDate) {
             newErrors.registrationDate =
                 "Registration date is required.";
-        }
-        else if (formData.registrationDate > today) {
+        } else if (formData.registrationDate > today) {
             newErrors.registrationDate =
                 "Date cannot be in the future.";
         }
@@ -168,14 +170,11 @@ function FarmerRegistration() {
 
         if (rainfall === "yes") {
             result = "Postpone Irrigation";
-        }
-        else if (moisture < 30) {
+        } else if (moisture < 30) {
             result = "Irrigation Required Immediately";
-        }
-        else if (moisture <= 50) {
+        } else if (moisture <= 50) {
             result = "Monitor Soil Moisture";
-        }
-        else {
+        } else {
             result = "Irrigation Not Required";
         }
 
@@ -224,36 +223,33 @@ function FarmerRegistration() {
     return (
         <>
             <header className="main-header">
-                <a href="/">
+                <Link to="/">
                     <img
                         src="/logo.png"
                         alt="Smart Irrigation Advisory System Logo"
                         style={{ height: "100px", width: "250px" }}
                     />
-                </a>
+                </Link>
 
                 <h1>FARMER REGISTRATION</h1>
                 <p>Smart Irrigation Advisory System</p>
-
             </header>
+
             <nav className="main-nav">
-            <a href="http://127.0.0.1:5500/exp%202/index.html">Home</a>
-            <a href="http://127.0.0.1:5500/exp%202/about-system.html">About</a>
-            <a href="http://127.0.0.1:5500/exp%202/irrigation-advisory.html">Irrigation Advisory</a>
-            <a href="http://127.0.0.1:5500/exp%202/farm-information.html">Farm Information</a>
-            <a href="http://127.0.0.1:5500/exp%202/farm-map.html">Farm Map</a>
-            <a href="http://127.0.0.1:5500/exp%202/recommendation.html">Recommendations</a>
-            <a href="http://localhost:3000">Farmer Registration</a>
-            <a href="http://127.0.0.1:5500/exp%202/media.html">Media</a>
-        </nav>
+                <Link to="/">Home</Link>
+                <Link to="/about">About</Link>
+                <Link to="/farmer-registration">Farmer Registration</Link>
+            </nav>
 
             <main>
                 <div className="registration-container">
                     <h2>Farmer Registration Form</h2>
 
-                    <form id="registrationForm" onSubmit={handleSubmit}
-                        onReset={handleReset}>
-
+                    <form
+                        id="registrationForm"
+                        onSubmit={handleSubmit}
+                        onReset={handleReset}
+                    >
                         <fieldset>
                             <legend>Farmer Information</legend>
 
@@ -366,27 +362,37 @@ function FarmerRegistration() {
                             <div className="form-row">
                                 <label>Irrigation Method</label>
 
-<div className="radio-group">
-    {["Drip Irrigation", "Surface Irrigation",
-      "Sprinkler Irrigation", "Subsurface Irrigation"].map((method) => (
-        <label key={method} className="radio-option">
-            <input
-                type="radio"
-                name="irrigationMethod"
-                value={method}
-                checked={formData.irrigationMethod === method}
-                onChange={handleChange}
-            />
-            {method}
-        </label>
-    ))}
-</div>
+                                <div className="radio-group">
+                                    {[
+                                        "Drip Irrigation",
+                                        "Surface Irrigation",
+                                        "Sprinkler Irrigation",
+                                        "Subsurface Irrigation"
+                                    ].map((method) => (
+                                        <label key={method} className="radio-option">
+                                            <input
+                                                type="radio"
+                                                name="irrigationMethod"
+                                                value={method}
+                                                checked={
+                                                    formData.irrigationMethod === method
+                                                }
+                                                onChange={handleChange}
+                                            />
+                                            {method}
+                                        </label>
+                                    ))}
+                                </div>
 
-<span className="error">{errors.irrigationMethod}</span>
+                                <span className="error">
+                                    {errors.irrigationMethod}
+                                </span>
                             </div>
 
                             <div className="form-row">
-                                <label htmlFor="soilMoisture">Soil Moisture (%)</label>
+                                <label htmlFor="soilMoisture">
+                                    Soil Moisture (%)
+                                </label>
                                 <input
                                     type="number"
                                     id="soilMoisture"
@@ -415,9 +421,13 @@ function FarmerRegistration() {
                                     max={today}
                                     value={formData.registrationDate}
                                     onChange={handleChange}
-                                    className={errors.registrationDate ? "invalid" : ""}
+                                    className={
+                                        errors.registrationDate ? "invalid" : ""
+                                    }
                                 />
-                                <span className="error">{errors.registrationDate}</span>
+                                <span className="error">
+                                    {errors.registrationDate}
+                                </span>
                             </div>
 
                             <div className="form-row">
@@ -445,8 +455,16 @@ function FarmerRegistration() {
                         </fieldset>
 
                         <div className="button-area">
-                            <input type="submit" value="Submit" className="submit-button" />
-                            <input type="reset" value="Reset" className="reset-button" />
+                            <input
+                                type="submit"
+                                value="Submit"
+                                className="submit-button"
+                            />
+                            <input
+                                type="reset"
+                                value="Reset"
+                                className="reset-button"
+                            />
                         </div>
 
                         {success && (
@@ -460,103 +478,123 @@ function FarmerRegistration() {
                 <div className="task-box">
                     <h2>JavaScript Tasks</h2>
 
-                    <div className="task">
-                        <h3>Task 1: Soil Moisture and Water Requirement</h3>
-                        <label htmlFor="requiredMoisture">
-                            Required Soil Moisture (%)
-                        </label>
-                        <input
-                            type="number"
-                            id="requiredMoisture"
-                            min="0"
-                            max="100"
-                            value={requiredMoisture}
-                            onChange={(e) => setRequiredMoisture(e.target.value)}
-                        />
-                        <button type="button" className="task-button"
-                            onClick={calculateWater}>
-                            Calculate
-                        </button>
+            <div className="task">
+                <h3>Task 1: Soil Moisture and Water Requirement</h3>
 
-                        {task1Result && (
-                            <div className="result">
-                                Farmer: {task1Result.farmer}<br />
-                                Plot ID: {task1Result.plot}<br />
-                                Current Moisture: {task1Result.current}%<br />
-                                Required Moisture: {task1Result.required}%<br />
-                                Moisture Deficit: {task1Result.deficit}%<br />
-                                Status: {task1Result.status}
-                            </div>
-                        )}
+                <label htmlFor="requiredMoisture">
+                    Required Soil Moisture (%)
+                </label>
+                <input
+                    type="number"
+                    id="requiredMoisture"
+                    min="0"
+                    max="100"
+                    value={requiredMoisture}
+                    onChange={(e) => setRequiredMoisture(e.target.value)}
+                />
+
+                <button
+                    type="button"
+                    className="task-button"
+                    onClick={calculateWater}
+                >
+                    Calculate
+                </button>
+
+                {task1Result && (
+                    <div className="result">
+                        Farmer: {task1Result.farmer}<br />
+                        Plot ID: {task1Result.plot}<br />
+                        Current Moisture: {task1Result.current}%<br />
+                        Required Moisture: {task1Result.required}%<br />
+                        Moisture Deficit: {task1Result.deficit}%<br />
+                        Status: {task1Result.status}
                     </div>
+                )}
+            </div>
 
-                    <div className="task">
-                        <h3>Task 2: Irrigation Recommendation</h3>
-                        <label htmlFor="rainfall">Rainfall Forecast</label>
-                        <select id="rainfall" value={rainfall}
-                            onChange={(e) => setRainfall(e.target.value)}>
-                            <option value="">Select</option>
-                            <option value="yes">Rain Expected</option>
-                            <option value="no">No Rain Expected</option>
-                        </select>
+            <div className="task">
+                <h3>Task 2: Irrigation Recommendation</h3>
 
-                        <button type="button" className="task-button"
-                            onClick={recommendIrrigation}>
-                            Recommend
-                        </button>
+                <label htmlFor="rainfall">Rainfall Forecast</label>
+                <select
+                    id="rainfall"
+                    value={rainfall}
+                    onChange={(e) => setRainfall(e.target.value)}
+                >
+                    <option value="">Select</option>
+                    <option value="yes">Rain Expected</option>
+                    <option value="no">No Rain Expected</option>
+                </select>
 
-                        {task2Result && (
-                            <div className="result">
-                                Crop Stage: {task2Result.stage}<br />
-                                Recommendation: {task2Result.recommendation}
-                            </div>
-                        )}
+                <button
+                    type="button"
+                    className="task-button"
+                    onClick={recommendIrrigation}
+                >
+                    Recommend
+                </button>
+
+                {task2Result && (
+                    <div className="result">
+                        Crop Stage: {task2Result.stage}<br />
+                        Recommendation: {task2Result.recommendation}
                     </div>
+                )}
+            </div>
 
-                    <div className="task">
-                        <h3>Task 3: Sugarcane Farm Object</h3>
-                        <button type="button" className="task-button"
-                            onClick={() => setTask3Result(true)}>
-                            Display Farm
-                        </button>
+            <div className="task">
+                <h3>Task 3: Sugarcane Farm Object</h3>
 
-                        {task3Result && (
-                            <div className="result">
-                                Farmer Name: {farm.farmerName}<br />
-                                Plot ID: {farm.plotId}<br />
-                                Crop Stage: {farm.cropStage}<br />
-                                Soil Moisture: {farm.soilMoisture}%<br />
-                                Area: {farm.area} acres<br />
-                                Pump Status: {farm.pumpStatus}
-                            </div>
-                        )}
+                <button
+                    type="button"
+                    className="task-button"
+                    onClick={() => setTask3Result(true)}
+                >
+                    Display Farm
+                </button>
+
+                {task3Result && (
+                    <div className="result">
+                        Farmer Name: {farm.farmerName}<br />
+                        Plot ID: {farm.plotId}<br />
+                        Crop Stage: {farm.cropStage}<br />
+                        Soil Moisture: {farm.soilMoisture}%<br />
+                        Area: {farm.area} acres<br />
+                        Pump Status: {farm.pumpStatus}
                     </div>
+                )}
+            </div>
 
-                    <div className="task">
-                        <h3>Task 4: Sensor Readings</h3>
-                        <button type="button" className="task-button"
-                            onClick={analyzeReadings}>
-                            Analyze
-                        </button>
+            <div className="task">
+                <h3>Task 4: Sensor Readings</h3>
 
-                        {task4Result && (
-                            <div className="result">
-                                Readings: {task4Result.readings.join(", ")}<br />
-                                Minimum: {task4Result.minimum}%<br />
-                                Maximum: {task4Result.maximum}%<br />
-                                Average: {task4Result.average}%<br />
-                                Below Critical Value: {task4Result.belowCritical}
-                            </div>
-                        )}
+                <button
+                    type="button"
+                    className="task-button"
+                    onClick={analyzeReadings}
+                >
+                    Analyze
+                </button>
+
+                {task4Result && (
+                    <div className="result">
+                        Readings: {task4Result.readings.join(", ")}<br />
+                        Minimum: {task4Result.minimum}%<br />
+                        Maximum: {task4Result.maximum}%<br />
+                        Average: {task4Result.average}%<br />
+                        Below Critical Value: {task4Result.belowCritical}
                     </div>
-                </div>
-            </main>
+                )}
+            </div>
+        </div>
+    </main>
 
-            <footer className="main-footer">
-                <p>© 2026 Smart Irrigation Advisory System</p>
-            </footer>
-        </>
-    );
+    <footer className="main-footer">
+        <p>© 2026 Smart Irrigation Advisory System</p>
+    </footer>
+</>
+);
 }
 
 export default FarmerRegistration;

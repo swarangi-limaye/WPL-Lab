@@ -1110,3 +1110,26 @@ hr {
     accent-color: #3CB371;
 }
 
+.page-container {
+    width: 85%;
+    margin: 30px auto;
+    padding: 25px;
+    background-color: #ECFFDC;
+    border: 1px solid #3CB371;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.page-heading {
+    text-align: center;
+    color: #006A4E;
+    margin-bottom: 25px;
+}
+
+.page-heading h1 {
+    font-size: 28px;
+}
+
+.page-heading p {
+    font-size: 16px;
+}
