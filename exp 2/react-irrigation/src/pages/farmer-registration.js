@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "../App.css";
 
@@ -235,7 +234,18 @@ function FarmerRegistration() {
 
                 <h1>FARMER REGISTRATION</h1>
                 <p>Smart Irrigation Advisory System</p>
+
             </header>
+            <nav className="main-nav">
+            <a href="http://127.0.0.1:5500/exp%202/index.html">Home</a>
+            <a href="http://127.0.0.1:5500/exp%202/about-system.html">About</a>
+            <a href="http://127.0.0.1:5500/exp%202/irrigation-advisory.html">Irrigation Advisory</a>
+            <a href="http://127.0.0.1:5500/exp%202/farm-information.html">Farm Information</a>
+            <a href="http://127.0.0.1:5500/exp%202/farm-map.html">Farm Map</a>
+            <a href="http://127.0.0.1:5500/exp%202/recommendation.html">Recommendations</a>
+            <a href="http://localhost:3000">Farmer Registration</a>
+            <a href="http://127.0.0.1:5500/exp%202/media.html">Media</a>
+        </nav>
 
             <main>
                 <div className="registration-container">
